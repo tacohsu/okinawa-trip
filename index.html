@@ -162,6 +162,44 @@ section{margin-top:44px}
 .pack-item input{accent-color:var(--sea);width:17px;height:17px;margin-top:2px;flex:0 0 auto;cursor:pointer}
 .pack-item.done span{color:var(--muted);text-decoration:line-through}
 .pack-hint{margin-top:14px;font-size:.78rem;color:var(--muted)}
+.pack-item .dl{display:block;font-size:.72rem;color:var(--coral);font-weight:700;margin-top:1px}
+
+/* ===== 實用工具 ===== */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.tool{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
+.tool h4{font-size:1.02rem;font-weight:900;color:var(--deep);margin-bottom:12px}
+.fx-row{display:flex;align-items:center;gap:10px;margin-top:8px}
+.fx-row input{flex:1;font-family:var(--en);font-weight:700;font-size:1.15rem;color:var(--deep);border:2px solid var(--foam);border-radius:10px;padding:.45em .7em;width:100%;min-width:0;background:var(--sand)}
+.fx-row input:focus{outline:none;border-color:var(--sea)}
+.fx-row .cur{font-weight:900;color:var(--sea);width:46px;font-family:var(--en)}
+.fx-meta{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.78rem;color:var(--muted);flex-wrap:wrap}
+.fx-meta input{width:90px;font-family:var(--en);font-weight:600;border:1.5px solid var(--foam);border-radius:8px;padding:.2em .5em;font-size:.8rem;color:var(--ink)}
+.fx-meta button{border:none;background:var(--sea);color:#fff;font-weight:700;border-radius:999px;padding:.25em .9em;font-size:.75rem;cursor:pointer;font-family:var(--zh)}
+.fx-meta button:hover{background:var(--deep)}
+.tool .small-note{margin-top:10px;font-size:.74rem;color:var(--muted)}
+.wx-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--foam);font-size:.88rem}
+.wx-row:last-child{border-bottom:none}
+.wx-row .d{flex:0 0 84px;font-weight:700;color:var(--deep)}
+.wx-row .i{flex:0 0 34px;font-size:1.25rem;text-align:center}
+.wx-row .t{flex:1;font-family:var(--en);font-weight:600;color:var(--ink)}
+.wx-row .t small{color:var(--muted);font-weight:500}
+
+/* ===== 收折面板 ===== */
+details.fold{margin-top:44px}
+details.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 22px;user-select:none}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary .en{font-family:var(--en);font-weight:700;color:var(--sea);letter-spacing:.2em;font-size:.78rem;text-transform:uppercase}
+details.fold>summary h2{font-size:1.2rem;font-weight:900;letter-spacing:.05em;flex:1}
+details.fold>summary .mini{font-family:var(--en);font-weight:700;font-size:.85rem;color:var(--sea);background:var(--foam);border-radius:999px;padding:.15em .8em;white-space:nowrap}
+details.fold>summary .arrow{width:10px;height:10px;border-right:2.5px solid var(--sea);border-bottom:2.5px solid var(--sea);transform:rotate(45deg);transition:transform .25s;flex:0 0 auto;margin-top:-4px}
+details.fold[open]>summary .arrow{transform:rotate(-135deg);margin-top:4px}
+details.fold[open]>summary{border-radius:var(--radius) var(--radius) 0 0}
+details.fold .fold-body{background:var(--card);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow);padding:6px 22px 22px}
+details.fold>summary:hover h2{color:var(--sea)}
+
+.sync-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:.78rem;color:var(--muted);flex-wrap:wrap}
+.sync-row button{border:none;background:var(--sea);color:#fff;font-weight:700;border-radius:999px;padding:.25em .9em;font-size:.75rem;cursor:pointer;font-family:var(--zh)}
+.sync-row button:hover{background:var(--deep)}
 
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 16px 40px;background:linear-gradient(180deg,var(--sand),#EFF8F8)}
 footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(--sea)}
@@ -195,6 +233,25 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 </header>
 
 <main class="wrap">
+<!-- ===== 實用工具 ===== -->
+<section id="tools">
+  <div class="sec-head"><span class="en">Tools</span><h2>實用工具</h2></div>
+  <div class="tools">
+    <div class="tool">
+      <h4>💱 匯率計算機</h4>
+      <div class="fx-row"><input id="fx-a" type="number" inputmode="decimal" value="1000"><span class="cur">JPY</span></div>
+      <div class="fx-row"><input id="fx-b" type="number" inputmode="decimal"><span class="cur">TWD</span></div>
+      <div class="fx-meta">匯率 1 JPY = <input id="fx-rate"> TWD　<span id="fx-time">尚未更新</span> <button id="fx-refresh" type="button">更新匯率</button></div>
+      <p class="small-note">兩欄都可以輸入，自動換算。匯率為每日參考價，實際刷卡依各銀行結匯日匯率與手續費為準。</p>
+    </div>
+    <div class="tool">
+      <h4>🌤️ 那霸天氣・未來 7 天</h4>
+      <div id="wx-list" style="font-size:.85rem;color:var(--muted)">載入中…</div>
+      <p class="small-note">天氣預報最遠約兩週，越接近出發越準。9 月為沖繩颱風季，出發前一週記得回來確認，並留意航空公司的航班異動通知。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 航班 ===== -->
 <section id="flights">
   <div class="sec-head"><span class="en">Flights</span><h2>航班資訊</h2></div>
@@ -482,6 +539,23 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   </div>
 </section>
 
+<!-- ===== 預約與門票（收折） ===== -->
+<details class="fold" id="booking">
+  <summary>
+    <span class="en">Bookings</span>
+    <h2>預約與門票清單</h2>
+    <span class="mini" id="bk-mini">0 / 0</span>
+    <span class="arrow" aria-hidden="true"></span>
+  </summary>
+  <div class="fold-body">
+    <p style="font-size:.85rem;color:var(--muted);margin:10px 0 12px">🙋 這區給負責預約的成員使用，其他人看標題旁的進度就好。勾選會<b>雲端同步給所有人</b>，打開頁面或按「重新同步」即可看到最新進度。</p>
+    <div class="sync-row"><span id="bk-sync">☁️ 連線中…</span><button id="bk-refresh" type="button">🔄 重新同步</button></div>
+    <div class="pack-progress"><div class="pack-bar"><i id="bk-fill"></i></div><b id="bk-count">0 / 0</b></div>
+    <div class="pack-grid" id="bk-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))"></div>
+    <div class="pack-hint">⏰ 依建議期限提前處理，熱門店與場次額滿就要調整行程了。</div>
+  </div>
+</details>
+
 </main>
 
 <footer>
@@ -508,6 +582,154 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     setTimeout(tick, 1000);
   }
   tick();
+})();
+
+// 匯率計算機
+(function(){
+  var CUR='JPY', KEY='okinawa-fx';
+  var a=document.getElementById('fx-a'), b=document.getElementById('fx-b'),
+      r=document.getElementById('fx-rate'), t=document.getElementById('fx-time');
+  var mem=null;
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return mem; } }
+  function save(o){ try{ localStorage.setItem(KEY, JSON.stringify(o)); }catch(e){ mem=o; } }
+  function rate(){ var v=parseFloat(r.value); return (v>0)?v:null; }
+  function fromA(){ var v=parseFloat(a.value), k=rate(); if(!isNaN(v)&&k) b.value=(v*k).toFixed(1); }
+  function fromB(){ var v=parseFloat(b.value), k=rate(); if(!isNaN(v)&&k) a.value=(v/k).toFixed(0); }
+  a.addEventListener('input', fromA);
+  b.addEventListener('input', fromB);
+  r.addEventListener('input', fromA);
+  function apply(o){ r.value=o.rate.toFixed(4); t.textContent='更新於 '+o.time; fromA(); }
+  function refresh(){
+    t.textContent='更新中…';
+    fetch('https://open.er-api.com/v6/latest/'+CUR).then(function(res){return res.json()}).then(function(d){
+      if(d && d.rates && d.rates.TWD){
+        var o={rate:d.rates.TWD, time:new Date().toLocaleDateString('zh-TW')};
+        save(o); apply(o);
+      } else t.textContent='更新失敗，可手動輸入匯率';
+    }).catch(function(){ t.textContent='離線中，可手動輸入匯率'; });
+  }
+  document.getElementById('fx-refresh').addEventListener('click', refresh);
+  var cached=load();
+  if(cached){ apply(cached); } else { refresh(); }
+})();
+
+// 天氣預報
+(function(){
+  var box=document.getElementById('wx-list');
+  var WD=['日','一','二','三','四','五','六'];
+  function icon(c){
+    if(c===0) return '☀️';
+    if(c<=2) return '🌤️';
+    if(c===3) return '☁️';
+    if(c<=48) return '🌫️';
+    if(c<=57) return '🌦️';
+    if(c<=67) return '🌧️';
+    if(c<=77) return '❄️';
+    if(c<=82) return '🌧️';
+    if(c<=86) return '🌨️';
+    return '⛈️';
+  }
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=26.21&longitude=127.68&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=7')
+  .then(function(res){return res.json()}).then(function(d){
+    var dd=d.daily; box.innerHTML=''; box.style.color='';
+    for(var i=0;i<dd.time.length;i++){
+      var dt=new Date(dd.time[i]+'T00:00:00');
+      var row=document.createElement('div'); row.className='wx-row';
+      row.innerHTML='<span class="d">'+(dt.getMonth()+1)+'/'+dt.getDate()+'（'+WD[dt.getDay()]+'）</span>'
+        +'<span class="i">'+icon(dd.weather_code[i])+'</span>'
+        +'<span class="t">'+Math.round(dd.temperature_2m_min[i])+'–'+Math.round(dd.temperature_2m_max[i])+'°C <small>降雨 '+dd.precipitation_probability_max[i]+'%</small></span>';
+      box.appendChild(row);
+    }
+  }).catch(function(){ box.textContent='目前離線，連上網路後重新整理即可載入。'; });
+})();
+
+// 預約與門票清單（Supabase 雲端同步）
+(function(){
+  var API = 'https://jbyldrtirpzbyjmcevgz.supabase.co/rest/v1/bookings';
+  var HEADERS = {
+    'apikey': 'sb_publishable_RIJlWy1URKu07MSmS1daew_y7kVRV2b',
+    'Authorization': 'Bearer sb_publishable_RIJlWy1URKu07MSmS1daew_y7kVRV2b',
+    'Content-Type': 'application/json'
+  };
+  var TRIP = 'okinawa', LKEY = 'okinawa-booking-2026';
+  var items = [
+    {t:'租車預約（取車 9/2 約 17:10、還車 9/6 前 14:30）', d:'盡早，確認含中文導航'},
+    {t:'駕照日文譯本（監理站辦理，自駕必備）', d:'盡早'},
+    {t:'Day 2 晚餐：百年古家「大家」訂位', d:'出發前 2–4 週'},
+    {t:'Day 3 餐廳擇一訂位：琉球的牛（恩納／北谷）或敘敘苑', d:'出發前 1 個月'},
+    {t:'Day 4：teamLab Future Park 沖繩 場次預約', d:'出發前 1 個月'},
+    {t:'Day 4：DMM Kariyushi 水族館門票', d:'出發前 1–2 週'},
+    {t:'Day 2：美麗海水族館優惠門票（線上或便利商店）', d:'出發前 1–2 週'},
+    {t:'Day 4：沖繩世界文化王國（玉泉洞）門票', d:'出發前 1–2 週'},
+    {t:'eSIM／網卡購買並完成設定', d:'出發前 1 週'}
+  ];
+  var grid = document.getElementById('bk-grid');
+  var syncEl = document.getElementById('bk-sync');
+  var mem = {};
+  function setSync(t){ if(syncEl) syncEl.textContent = t; }
+  function loadLocal(){ try{ return JSON.parse(localStorage.getItem(LKEY)) || {}; }catch(e){ return mem; } }
+  function saveLocal(st){ try{ localStorage.setItem(LKEY, JSON.stringify(st)); }catch(e){ mem = st; } }
+  var state = loadLocal();
+  var cbs = [], labels = [];
+  items.forEach(function(item, i){
+    var label = document.createElement('label');
+    label.className = 'pack-item' + (state[i] ? ' done' : '');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.checked = !!state[i];
+    var sp = document.createElement('span');
+    sp.textContent = item.t;
+    var dl = document.createElement('em');
+    dl.className = 'dl'; dl.textContent = '⏰ ' + item.d;
+    sp.appendChild(dl);
+    cb.addEventListener('change', function(){
+      state[i] = cb.checked;
+      label.classList.toggle('done', cb.checked);
+      saveLocal(state); update();
+      push(i, cb.checked);
+    });
+    label.appendChild(cb); label.appendChild(sp);
+    grid.appendChild(label);
+    cbs.push(cb); labels.push(label);
+  });
+  function applyState(){
+    items.forEach(function(_, i){
+      cbs[i].checked = !!state[i];
+      labels[i].classList.toggle('done', !!state[i]);
+    });
+    update();
+  }
+  function update(){
+    var done = 0;
+    items.forEach(function(_, i){ if(state[i]) done++; });
+    document.getElementById('bk-fill').style.width = (done/items.length*100) + '%';
+    document.getElementById('bk-count').textContent = done + ' / ' + items.length;
+    var mini = document.getElementById('bk-mini');
+    if(mini) mini.textContent = done + ' / ' + items.length;
+  }
+  function pull(){
+    setSync('☁️ 同步中…');
+    fetch(API + '?trip=eq.' + TRIP + '&select=item_id,done', {headers: HEADERS})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(rows){
+        rows.forEach(function(row){ state[row.item_id] = row.done; });
+        saveLocal(state); applyState();
+        setSync('☁️ 已同步（' + new Date().toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'}) + '）');
+      })
+      .catch(function(){ setSync('⚠️ 離線中，顯示本機紀錄'); });
+  }
+  function push(i, done){
+    fetch(API, {
+      method: 'POST',
+      headers: Object.assign({'Prefer': 'resolution=merge-duplicates'}, HEADERS),
+      body: JSON.stringify([{trip: TRIP, item_id: i, done: done}])
+    })
+    .then(function(r){ if(r.ok) setSync('☁️ 已同步（' + new Date().toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'}) + '）'); else throw 0; })
+    .catch(function(){ setSync('⚠️ 這次勾選未上傳成功，恢復連線後請按重新同步'); });
+  }
+  var rf = document.getElementById('bk-refresh');
+  if(rf) rf.addEventListener('click', pull);
+  update();
+  pull();
 })();
 
 // 行前打包清單
