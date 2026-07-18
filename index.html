@@ -487,7 +487,8 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   <div class="day-body">
     <ul class="tl">
       <li><span class="time">08:00</span><span class="dot"></span><span class="act">飯店早餐 🍳（含早餐）、整理行李、辦理退房</span></li>
-      <li class="star tap" data-d="neopark"><span class="time">09:00<br>11:00</span><span class="dot"></span><span class="act"><span class="hl">Neo Park Okinawa 名護自然動植物公園 🦩</span></span></li>
+      <li><span class="time">09:15</span><span class="dot"></span><span class="act">飯店出發（Neo Park 09:30 開園）</span></li>
+      <li class="star tap" data-d="neopark"><span class="time">09:30<br>11:00</span><span class="dot"></span><span class="act"><span class="hl">Neo Park Okinawa 名護自然動植物公園 🦩</span></span></li>
       <li><span class="time">11:00<br>11:40</span><span class="dot"></span><span class="act">前往萬座毛</span></li>
       <li class="star tap" data-d="manzamo"><span class="time">11:40<br>12:20</span><span class="dot"></span><span class="act"><span class="hl">萬座毛象鼻岩・環狀步道</span></span></li>
       <li><span class="time">12:20<br>13:00</span><span class="dot"></span><span class="act">前往 AEON MALL Okinawa Rycom</span></li>
@@ -520,7 +521,8 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   </div>
   <div class="day-body">
             <ul class="tl">
-      <li><span class="time">08:50</span><span class="dot"></span><span class="act">早餐自理、飯店出發（逸之彩不含早餐）</span></li>
+      <li class="tap" data-d="haruchii"><span class="time">08:00<br>08:40</span><span class="dot"></span><span class="act">はるちい 買早餐・肉捲飯糰（08:00 開門）🍙</span></li>
+      <li><span class="time">08:50</span><span class="dot"></span><span class="act">飯店出發</span></li>
       <li class="star tap" data-d="gyokusendo"><span class="time">09:30<br>12:00</span><span class="dot"></span><span class="act"><span class="hl">沖繩世界：玉泉洞・超級 Eisa・王國村 🌺</span></span></li>
       <li><span class="time">12:00<br>12:30</span><span class="dot"></span><span class="act">返回那霸小祿</span></li>
       <li class="star tap" data-d="tondou"><span class="time">12:30<br>13:20</span><span class="dot"></span><span class="act"><span class="hl">琉球新麵 通堂 小祿本店 🍜</span></span></li>
@@ -987,9 +989,9 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 
     /* ===== Day 3 ===== */
     neopark: {
-      tag:'景點', title:'Neo Park Okinawa（名護自然動植物公園）', sub:'09:00–11:00｜紅鶴湖・互動餵食・小火車',
+      tag:'景點', title:'Neo Park Okinawa（名護自然動植物公園）', sub:'Day 3｜09:30–11:00・09:30 開園',
       ph:[], emo:'🦩',
-      body:'仿亞馬遜與非洲湖區打造的<b>半開放式動植物園</b>，一進門就是紅鶴群聚的火鶴湖，園內水鳥會近距離跟你討食（入口處買飼料），互動感十足。繞園一圈的<b>沖繩輕便鐵道小火車</b>約 20 分鐘，重現昔日沖繩鐵道風情，還有動物親密接觸區，親子放電首選。<br><b>實戰提示</b>：09:00 開園就進場，早上涼爽、動物也最活潑；怕鳥太熱情的話飼料拿低、走步道中間就好。',
+      body:'仿亞馬遜與非洲湖區打造的<b>半開放式動植物園</b>，一進門就是紅鶴群聚的火鶴湖，園內水鳥會近距離跟你討食（入口處買飼料），互動感十足。繞園一圈的<b>沖繩輕便鐵道小火車</b>約 20 分鐘，重現昔日沖繩鐵道風情，還有動物親密接觸區，親子放電首選。<br><b>實戰提示</b>：<b>09:30 開園</b>，開門就進場，早上涼爽、動物也最活潑；怕鳥太熱情的話飼料拿低、走步道中間就好。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=Neo+Park+Okinawa'},{t:'🔎 門票與小火車資訊', h:'https://www.google.com/search?q=Neo+Park+Okinawa+%E9%96%80%E7%A5%A8+%E5%B0%8F%E7%81%AB%E8%BB%8A', lite:true}]
     },
     manzamo: {
@@ -1039,13 +1041,13 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     makishi: {
       tag:'景點', title:'第一牧志公設市場', sub:'Day 4｜15:15–16:15・那霸的廚房',
       ph:[], emo:'🐟',
-      body:'那霸人的廚房，2023 年改建後的新館明亮好逛：1F 是色彩鮮豔的<b>熱帶魚鮮、縣產豬肉與醃漬小菜</b>攤位，2F 食堂街還有「持ち上げ」文化——樓下買海鮮、樓上代客料理。<br><b>實戰提示</b>：下午時段人潮較緩、好拍照；攤商招呼試吃是市場文化，別害羞；晚餐留給國際通的話，這裡淺嚐就好。',
+      body:'那霸人的廚房，2023 年改建後的新館明亮好逛：1F 是色彩鮮豔的<b>熱帶魚鮮、縣產豬肉與醃漬小菜</b>攤位，2F 食堂街還有「持ち上げ」文化——樓下買海鮮、樓上代客料理。<h4>🛒 大城屋（伴手禮）</h4>市場周邊的老字號伴手禮店，是在地人與熟客會去的地方。<b>價格普遍比國際通與機場便宜</b>，紅芋塔、黑糖、鹽味零食等常見伴手禮都能一次補齊。<br><b>注意三件事</b>：<b>① 不能退稅</b>（不是免稅店，但含稅價往往仍比別處低）、<b>② 只收現金</b>，刷卡與電子支付都不行、<b>③ 想大量採買記得先備好日圓現金</b>。<br><b>實戰提示</b>：下午時段人潮較緩、好拍照；攤商招呼試吃是市場文化，別害羞；晚餐留給國際通的話，這裡淺嚐就好。伴手禮在大城屋比過價，晚上到國際通就知道該不該再買。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E7%AC%AC%E4%B8%80%E7%89%A7%E5%BF%97%E5%85%AC%E8%A8%AD%E5%B8%82%E5%A0%B4'},{t:'🔎 市場美食攻略', h:'https://www.google.com/search?q=%E7%AC%AC%E4%B8%80%E7%89%A7%E5%BF%97%E5%85%AC%E8%A8%AD%E5%B8%82%E5%A0%B4+%E7%BE%8E%E9%A3%9F', lite:true}]
     },
     kokusai: {
       tag:'購物', title:'國際通', sub:'Day 4｜16:15–18:00・逛街與伴手禮',
       ph:[FP+'Kokusai-dori08s3s4440.jpg?width=900', FP+'Kokusai-dori01ss4272.jpg?width=900'],
-      body:'全長約 1.6 公里的那霸主街，戰後迅速復興而有<b>「奇蹟的一哩」</b>之稱。伴手禮、藥妝、琉球玻璃、雪鹽與紅芋塔通通在這；轉進<b>市場本通</b>等商店街鑽一鑽，更有在地氣氛。<br><b>實戰提示</b>：伴手禮<b>先走商店街比價再回頭買</b>，通常比大街上便宜；退稅記得帶護照。晚餐不用預訂、看當下想吃什麼——牛かつ、暖暮拉麵、塔可飯等口袋名單請看頁面下方「那霸口袋名單」。',
+      body:'全長約 1.6 公里的那霸主街，戰後迅速復興而有<b>「奇蹟的一哩」</b>之稱。伴手禮、藥妝、琉球玻璃、雪鹽與紅芋塔通通在這；轉進<b>市場本通</b>等商店街鑽一鑽，更有在地氣氛。<h4>🎮 駿河屋（淳久堂書店 B1）</h4>日本知名的二手動漫・玩具連鎖店，開在國際通上<b>淳久堂書店（JUNKUDO）那霸店的地下 1 樓</b>。店內有整排<b>扭蛋機</b>、二手動漫周邊、模型公仔、卡牌與遊戲軟體，價格比新品便宜不少，挖寶感十足。<br><b>實戰提示</b>：扭蛋機要投硬幣，先在附近超商或藥妝店換好 100 日圓銅板；書店本身也很好逛，冷氣強，逛街逛累了可以來這裡歇腳。<br><b>實戰提示</b>：伴手禮<b>先走商店街比價再回頭買</b>，通常比大街上便宜；退稅記得帶護照。晚餐不用預訂、看當下想吃什麼——牛かつ、暖暮拉麵、塔可飯等口袋名單請看頁面下方「那霸口袋名單」。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E9%9A%9B%E9%80%9A'},{t:'🔎 伴手禮攻略', h:'https://www.google.com/search?q=%E5%9C%8B%E9%9A%9B%E9%80%9A+%E4%BC%B4%E6%89%8B%E7%A6%AE+%E6%8E%A8%E8%96%A6', lite:true}]
     },
 
@@ -1105,7 +1107,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     kokusaishop: {
       tag:'購物', title:'國際通・購物推薦', sub:'Day 4｜16:30–20:00 逛街與伴手禮',
       ph:[], emo:'🎁',
-      body:'全長約 1.6 公里的那霸主街，伴手禮、藥妝、雜貨一次補齊。<h4>🎁 沖繩限定伴手禮</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#8B1A1A;--fg:#fff\'>御菓子御殿</span><span class=\'bc\' style=\'--bg:#4A90A4;--fg:#fff\'>鹽屋 SHIOYA</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>Calbee+</span><span class=\'bc\' style=\'--bg:#C77C2E;--fg:#fff\'>南風堂</span></div><h4>💄 美妝・藥妝</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#0068B7;--fg:#fff\'>松本清 matsukiyo</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>大國藥妝</span></div><h4>🛒 雜貨・家電</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#FFD800;--fg:#1A1A1A\'>唐吉訶德 ドンキ</span><span class=\'bc\' style=\'--bg:#F5C400;--fg:#1A1A1A\'>LOFT</span><span class=\'bc\' style=\'--bg:#197A43;--fg:#fff\'>Hands</span></div><br><b>實戰提示</b>：御菓子御殿的<b>紅芋塔</b>、鹽屋的<b>雪鹽霜淇淋</b>、Calbee+ 的<b>現炸薯條三兄弟</b>是三大必買。伴手禮<b>先走市場本通等商店街比價再回頭買</b>，通常比大街便宜；唐吉訶德營業到很晚，最後再逛。單店滿 5,000 日圓辦免稅，護照要隨身帶。',
+      body:'全長約 1.6 公里的那霸主街，伴手禮、藥妝、雜貨一次補齊。<h4>🎁 沖繩限定伴手禮</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#8B1A1A;--fg:#fff\'>御菓子御殿</span><span class=\'bc\' style=\'--bg:#4A90A4;--fg:#fff\'>鹽屋 SHIOYA</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>Calbee+</span><span class=\'bc\' style=\'--bg:#C77C2E;--fg:#fff\'>南風堂</span></div><h4>💄 美妝・藥妝</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#0068B7;--fg:#fff\'>松本清 matsukiyo</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>大國藥妝</span></div><h4>🎮 動漫・扭蛋</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#E8380D;--fg:#fff\'>駿河屋（淳久堂 B1）</span><span class=\'bc\' style=\'--bg:#1B4F9C;--fg:#fff\'>JUNKUDO 淳久堂書店</span></div><h4>🛒 雜貨・家電</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#FFD800;--fg:#1A1A1A\'>唐吉訶德 ドンキ</span><span class=\'bc\' style=\'--bg:#F5C400;--fg:#1A1A1A\'>LOFT</span><span class=\'bc\' style=\'--bg:#197A43;--fg:#fff\'>Hands</span></div><br><b>實戰提示</b>：御菓子御殿的<b>紅芋塔</b>、鹽屋的<b>雪鹽霜淇淋</b>、Calbee+ 的<b>現炸薯條三兄弟</b>是三大必買。伴手禮<b>先走市場本通等商店街比價再回頭買</b>，通常比大街便宜；唐吉訶德營業到很晚，最後再逛。單店滿 5,000 日圓辦免稅，護照要隨身帶。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E9%9A%9B%E9%80%9A'}]
     },
 
@@ -1121,6 +1123,13 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       ph:[], emo:'🛍️',
       body:'由嫁到沖繩的台灣人經營的伴手禮店，<b>中文溝通零障礙</b>，可以直接問「哪個好吃、哪個好送人」，是第一次買沖繩伴手禮時最省時的一站。店內以沖繩在地零食、黑糖、海鹽、調味料與各式伴手禮為主，常有整組包裝好的組合方便帶回台灣。<br><b>實戰提示</b>：先在這裡問清楚行情與推薦，晚上到國際通就知道該不該再補貨；買太多可以問問寄送與保存方式。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=OKINAWA+SHIN+BOO'},{t:'🔎 店家資訊與評價', h:'https://www.google.com/search?q=OKINAWA+SHIN+BOO+%E6%B2%96%E7%B9%A9%E5%AA%B3%E5%A9%A6', lite:true}]
+    },
+
+    haruchii: {
+      tag:'早餐', title:'はるちい（肉捲飯糰專門店）', sub:'Day 4｜08:00–08:40・安里・外帶早餐',
+      ph:[], emo:'🍙',
+      body:'安里的<b>肉捲飯糰（肉巻きおにぎり）專門店</b>，用薄豬肉片把飯糰整顆捲起來烤，份量紮實、單手就能吃，很適合當上車前的早餐。<br><b>營業時間</b>：每日 <b>08:00–15:00</b>（08:00 開門，正好接得上我們的時段）。<br><b>地址</b>：〒902-0067 沖縄県那覇市安里 100 金城アパート｜電話 070-6551-5495｜單軌<b>牧志站步行約 5 分</b>，離逸之彩很近，<b>走路過去比開車找停車位快</b>。<br><b>招牌品項</b>：炙燒起司、海藻蔥鹽、蒜味等口味的肉捲飯糰約 550–600 日圓；另有本部牛（A5 沖繩黑毛和牛）版本約 1,200 日圓，以及黑糖拿鐵、冰咖啡等飲料。<br><b>實戰提示</b>：08:00 開門就去買，帶上車在往沖繩世界的路上吃，時間最省；店內全面禁菸、位子不多，想坐下來吃就把出發時間往後抓 15 分鐘。價格與品項可能調整，以現場為準。',
+      links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E3%81%AF%E3%82%8B%E3%81%A1%E3%81%84%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E5%AE%89%E9%87%8C100%20%E9%87%91%E5%9F%8E%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88'},{t:'🔎 菜單與評價', h:'https://www.google.com/search?q=%E8%82%89%E5%B7%BB%E3%81%8D%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%E5%B0%82%E9%96%80%E5%BA%97%20%E3%81%AF%E3%82%8B%E3%81%A1%E3%81%84%20%E9%82%A3%E8%A6%87', lite:true}]
     }
   };
   var mask = document.getElementById('sheet-mask');
