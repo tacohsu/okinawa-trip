@@ -232,6 +232,15 @@ details.fold>summary:hover h2{color:var(--sea)}
 .proto .tl li.tap .act{background:var(--sand);border:1.5px solid #EDE4D2;border-radius:12px;padding:10px 38px 10px 14px;position:relative;transition:.15s}
 .proto .tl li.tap .act::after{content:"›";position:absolute;right:14px;top:50%;transform:translateY(-52%);color:var(--sea);font-weight:700;font-size:1.4rem;font-family:var(--en)}
 .proto .tl li.tap:hover .act{border-color:var(--sea-soft);box-shadow:0 3px 10px rgba(12,65,96,.08)}
+.shoprow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.shopbtn{font:inherit;font-size:.86rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--sea),var(--deep));border:0;border-radius:999px;padding:10px 18px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);display:inline-flex;align-items:center;gap:6px}
+.shopbtn:active{transform:translateY(1px)}
+.shopbtn .arw{opacity:.7}
+.brands{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 14px}
+.bc{font-size:.78rem;font-weight:700;letter-spacing:.02em;padding:5px 11px;border-radius:8px;background:var(--bg,#EEE);color:var(--fg,#fff);white-space:nowrap;line-height:1.4}
+.bc.star::after{content:'\2B50';margin-left:5px;font-size:.72rem}
+.sh-body h4{margin:16px 0 0;font-size:.9rem;color:var(--deep)}
+.sh-body h4:first-child{margin-top:4px}
 .proto-hint{font-size:.8rem;color:var(--sea);background:var(--foam);border-radius:10px;padding:8px 14px;margin-top:12px}
 
 /* ===== 底部詳情面板 ===== */
@@ -419,6 +428,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       <li class="star tap" data-d="kouki"><span class="time">20:30</span><span class="dot"></span><span class="act"><span class="hl">入住沖繩幸喜海灘最佳西方酒店</span></span></li>
       <li><span class="time">晚上</span><span class="dot"></span><span class="act">海灘散步、早點休息 🌙</span></li>
     </ul>
+    <div class="shoprow"><button type="button" class="shopbtn" data-d="iiasshop">🛍️ iias 品牌推薦<span class="arw">›</span></button></div>
     <div class="proto-hint">💡 帶「›」的項目可以直接點開，看介紹、照片與地圖（每一天都可以用）。</div>
     <div class="note"><b>當日重點</b>：取車後先在同一區的 iias 解決晚餐、超市補給完再北上，抵達名護就能直接休息，不用摸黑找吃的。</div>
   </div>
@@ -490,6 +500,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       <li><span class="time">21:00<br>21:30</span><span class="dot"></span><span class="act">前往那霸</span></li>
       <li class="star tap" data-d="hinode"><span class="time">21:30</span><span class="dot"></span><span class="act"><span class="hl">入住沖繩逸之彩飯店</span></span></li>
     </ul>
+    <div class="shoprow"><button type="button" class="shopbtn" data-d="rycomshop">🛒 Rycom 必逛品牌<span class="arw">›</span></button><button type="button" class="shopbtn" data-d="amshop">🏄 美國村品牌<span class="arw">›</span></button></div>
 
     <div class="note"><b>當日提醒</b>：
       <ul>
@@ -504,23 +515,26 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 <section class="day proto" id="d4">
   <div class="day-head">
     <div class="d-en">DAY 4 · SATURDAY</div>
-    <h3>波上宮・沖繩世界・牧志市場・國際通</h3>
+    <h3>沖繩世界・通堂拉麵・波上宮・牧志市場・國際通</h3>
     <div class="d-date">9月5日（六・土曜）</div>
   </div>
   <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">08:45</span><span class="dot"></span><span class="act">早餐自理、飯店出發（逸之彩不含早餐）</span></li>
-      <li class="star tap" data-d="naminoue"><span class="time">09:00<br>09:40</span><span class="dot"></span><span class="act"><span class="hl">波上宮 ⛩️</span></span></li>
-      <li><span class="time">09:40<br>10:20</span><span class="dot"></span><span class="act">前往沖繩世界文化王國</span></li>
-      <li class="star tap" data-d="gyokusendo"><span class="time">10:20<br>14:00</span><span class="dot"></span><span class="act"><span class="hl">玉泉洞、文化王國體驗，含園區午餐</span></span></li>
-      <li><span class="time">14:00<br>15:00</span><span class="dot"></span><span class="act">返回那霸市區，飯店稍作休息</span></li>
-      <li class="tap" data-d="makishi"><span class="time">15:30<br>16:30</span><span class="dot"></span><span class="act">第一牧志公設市場 🐟</span></li>
-      <li class="star tap" data-d="kokusai"><span class="time">16:30<br>20:00</span><span class="dot"></span><span class="act"><span class="hl">國際通逛街、伴手禮及晚餐（依喜好）🛒</span></span></li>
-      <li class="tap" data-d="hinode"><span class="time">20:10</span><span class="dot"></span><span class="act">返回沖繩逸之彩飯店，泡溫泉、吃宵夜拉麵 ♨️</span></li>
+            <ul class="tl">
+      <li><span class="time">08:50</span><span class="dot"></span><span class="act">早餐自理、飯店出發（逸之彩不含早餐）</span></li>
+      <li class="star tap" data-d="gyokusendo"><span class="time">09:30<br>12:00</span><span class="dot"></span><span class="act"><span class="hl">沖繩世界：玉泉洞・超級 Eisa・王國村 🌺</span></span></li>
+      <li><span class="time">12:00<br>12:30</span><span class="dot"></span><span class="act">返回那霸小祿</span></li>
+      <li class="star tap" data-d="tondou"><span class="time">12:30<br>13:20</span><span class="dot"></span><span class="act"><span class="hl">琉球新麵 通堂 小祿本店 🍜</span></span></li>
+      <li class="star tap" data-d="naminoue"><span class="time">13:40<br>14:10</span><span class="dot"></span><span class="act"><span class="hl">波上宮 ⛩️</span></span></li>
+      <li class="tap" data-d="shinboo"><span class="time">14:30<br>15:00</span><span class="dot"></span><span class="act">OKINAWA SHIN BOO（沖繩媳婦）🛍️</span></li>
+      <li class="tap" data-d="makishi"><span class="time">15:15<br>16:15</span><span class="dot"></span><span class="act">第一牧志公設市場 🐟</span></li>
+      <li class="star tap" data-d="kokusai"><span class="time">16:15<br>18:00</span><span class="dot"></span><span class="act"><span class="hl">國際通散策、伴手禮採買 🛍️</span></span></li>
+      <li><span class="time">18:00</span><span class="dot"></span><span class="act">晚餐（依喜好選擇，見下方口袋名單）🍴</span></li>
+      <li class="tap" data-d="hinode"><span class="time">19:30</span><span class="dot"></span><span class="act">自由活動、返回飯店泡溫泉與宵夜拉麵 ♨️</span></li>
       <li class="tap" data-d="senaga"><span class="time">備選</span><span class="dot"></span><span class="act">瀨長島 Umikaji Terrace（夕陽・看飛機）✈️</span></li>
     </ul>
+    <div class="shoprow"><button type="button" class="shopbtn" data-d="kokusaishop">🎁 國際通購物推薦<span class="arw">›</span></button></div>
 
-    <div class="note"><b>當日提醒</b>：晚餐不特別預訂、看當下想吃什麼——口袋名單請看下方「那霸口袋名單」。回飯店後記得帶泳衣去泡溫泉，還有 20:30–21:30 的免費宵夜拉麵 🍜🍺。<br><b>備選方案</b>：若沖繩世界提早結束、或當天想換個節奏，可把傍晚改成<b>瀨長島 Umikaji Terrace</b>（距那霸機場約 15 分，看夕陽與飛機起降），晚餐直接在島上解決；點上方「備選」那一列看詳細介紹。</div>
+    <div class="note"><b>當日提醒</b>：<ul><li><b>沖繩世界 2.5 小時建議動線</b>：09:35–10:25 玉泉洞 → <b>10:30–10:55 超級 Eisa 太鼓秀</b>（第一場常在此時段）→ 11:00–12:00 王國村（琉球老屋、玻璃與紅型工房、毒蛇博物公園）。</li><li><b>表演場次每年會調整</b>，出發前上官網確認當日時刻表；若第一場不是 10:30，就把玉泉洞與王國村的順序對調。</li><li><b>通堂</b>人氣店，小祿本店有自己的停車場，從沖繩世界回那霸順路。</li><li>下午行程集中在那霸市區，波上宮、SHIN BOO、牧志市場、國際通彼此都很近，車可以停在國際通周邊停車場一次解決。</li><li>晚餐不預訂、看當下想吃什麼——口袋名單請看下方「那霸口袋名單」。回飯店後記得帶泳衣泡溫泉，還有 20:30–21:30 的宵夜拉麵 🍜♨️。</li></ul></div>
   </div>
 </section>
 
@@ -543,6 +557,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       <li class="star"><span class="time">16:55</span><span class="dot"></span><span class="act"><span class="hl">FD231 起飛 ✈️</span></span></li>
       <li><span class="time">17:30</span><span class="dot"></span><span class="act">抵達台灣，旅程圓滿結束 🎉</span></li>
     </ul>
+    <div class="shoprow"><button type="button" class="shopbtn" data-d="iiasshop">🛍️ iias 品牌推薦<span class="arw">›</span></button></div>
     <div class="note"><b>還車提醒</b>：DMM 水族館就在 iias 樓上，逛完下樓直接吃飯採買，動線零移動；<b>14:00 前</b>完成加油與還車，接駁回機場約 15 分鐘。</div>
   </div>
 </section>
@@ -1010,25 +1025,25 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 
     /* ===== Day 4 ===== */
     naminoue: {
-      tag:'景點', title:'波上宮', sub:'09:00–09:40｜琉球八社之首',
+      tag:'景點', title:'波上宮', sub:'Day 4｜13:40–14:10・琉球八社之首',
       ph:[FP+'111204_Naminoue_Beach_and_Naminoue-gu_Naha_Okinawa_pref_Japan02bs.jpg?width=900'],
       body:'琉球八社之首，建在<b>臨海斷崖之上</b>、俯瞰波之上海灘，是那霸市區最具代表性的神社，來此祈求旅途平安剛剛好。朱紅社殿混合琉球與神社建築風格，狛犬是沖繩風獅爺（シーサー）樣式。<br><b>實戰提示</b>：本殿參拜後，<b>繞到旁邊的波之上海灘回望斷崖上的神社</b>——這才是波上宮的經典構圖；想收御朱印的話社務所上午就有受理。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E6%B3%A2%E4%B8%8A%E5%AE%AE'},{t:'🔎 御朱印與參拜資訊', h:'https://www.google.com/search?q=%E6%B3%A2%E4%B8%8A%E5%AE%AE+%E5%BE%A1%E6%9C%B1%E5%8D%B0+%E5%8F%82%E6%8B%9D%E6%99%82%E9%96%93', lite:true}]
     },
     gyokusendo: {
-      tag:'景點', title:'玉泉洞・沖繩世界文化王國', sub:'10:20–14:00｜洞內約 40 分＋文化體驗＋園區午餐',
+      tag:'景點', title:'玉泉洞・沖繩世界文化王國', sub:'Day 4｜09:30–12:00・玉泉洞＋Eisa＋王國村',
       ph:[FP+'Gyokusendo_Nanjo_Okinawa_Japan03s3104.jpg?width=900'],
       body:'歷經約 30 萬年形成的鐘乳石洞，全長約 5 公里、開放參觀約 <b>890 公尺</b>，鐘乳石數量日本屈指可數；洞內常年約 21 度，是九月沖繩最涼爽的地方。出洞後接<b>文化王國園區</b>：琉球王國城下町老屋、琉球玻璃與紅型染體驗、毒蛇博物公園，以及每天數場的<b>超級 Eisa 太鼓表演</b>。<br><b>實戰提示</b>：進園先確認當日表演場次再排逛園順序；<b>午餐直接在園區內解決</b>（沖繩麵、簡餐都有）；洞內濕滑，穿防滑的鞋、相機小心水滴。門票已列入預約清單。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E6%B2%96%E7%B8%84%E4%B8%96%E7%95%8C%E6%96%87%E5%8C%96%E7%8E%8B%E5%9C%8B%E7%8E%89%E6%B3%89%E6%B4%9E'},{t:'🔎 表演場次查詢', h:'https://www.google.com/search?q=%E3%81%8A%E3%81%8D%E3%81%AA%E3%82%8F%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89+%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%82%A8%E3%82%A4%E3%82%B5%E3%83%BC+%E6%99%82%E9%96%93', lite:true}]
     },
     makishi: {
-      tag:'景點', title:'第一牧志公設市場', sub:'15:30–16:30｜那霸的廚房・2023 年新館',
+      tag:'景點', title:'第一牧志公設市場', sub:'Day 4｜15:15–16:15・那霸的廚房',
       ph:[], emo:'🐟',
       body:'那霸人的廚房，2023 年改建後的新館明亮好逛：1F 是色彩鮮豔的<b>熱帶魚鮮、縣產豬肉與醃漬小菜</b>攤位，2F 食堂街還有「持ち上げ」文化——樓下買海鮮、樓上代客料理。<br><b>實戰提示</b>：下午時段人潮較緩、好拍照；攤商招呼試吃是市場文化，別害羞；晚餐留給國際通的話，這裡淺嚐就好。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E7%AC%AC%E4%B8%80%E7%89%A7%E5%BF%97%E5%85%AC%E8%A8%AD%E5%B8%82%E5%A0%B4'},{t:'🔎 市場美食攻略', h:'https://www.google.com/search?q=%E7%AC%AC%E4%B8%80%E7%89%A7%E5%BF%97%E5%85%AC%E8%A8%AD%E5%B8%82%E5%A0%B4+%E7%BE%8E%E9%A3%9F', lite:true}]
     },
     kokusai: {
-      tag:'購物', title:'國際通', sub:'16:30–20:00｜逛街、伴手禮與晚餐一次搞定',
+      tag:'購物', title:'國際通', sub:'Day 4｜16:15–18:00・逛街與伴手禮',
       ph:[FP+'Kokusai-dori08s3s4440.jpg?width=900', FP+'Kokusai-dori01ss4272.jpg?width=900'],
       body:'全長約 1.6 公里的那霸主街，戰後迅速復興而有<b>「奇蹟的一哩」</b>之稱。伴手禮、藥妝、琉球玻璃、雪鹽與紅芋塔通通在這；轉進<b>市場本通</b>等商店街鑽一鑽，更有在地氣氛。<br><b>實戰提示</b>：伴手禮<b>先走商店街比價再回頭買</b>，通常比大街上便宜；退稅記得帶護照。晚餐不用預訂、看當下想吃什麼——牛かつ、暖暮拉麵、塔可飯等口袋名單請看頁面下方「那霸口袋名單」。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E9%9A%9B%E9%80%9A'},{t:'🔎 伴手禮攻略', h:'https://www.google.com/search?q=%E5%9C%8B%E9%9A%9B%E9%80%9A+%E4%BC%B4%E6%89%8B%E7%A6%AE+%E6%8E%A8%E8%96%A6', lite:true}]
@@ -1064,6 +1079,48 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       ph:[], emo:'🐠',
       body:'2020 年開幕的新型態水族館，把<b>投影映像、燈光與實體水槽</b>結合在一起，氛圍和美麗海完全不同——一趟旅程逛兩間也不會膩。動線由 <b>2F 亞熱帶叢林區</b>（樹懶、水豚等陸上動物）往 <b>1F 海洋區</b>，腳下還有踩上去會心跳加速的<b>透明地板水槽</b>。<br><b>實戰提示</b>：門票已列入預約清單，入場出示 QR code；透明地板記得往下拍一張。逛完<b>下樓就是 iias 商場</b>，直接接午餐與最後採買。',
       links:[{t:'🌐 官方網站', h:'https://kariyushi-aquarium.com/'},{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=DMM+Kariyushi+Aquarium', lite:true}]
+    },
+
+    iiasshop: {
+      tag:'購物', title:'iias 沖繩豐崎・品牌推薦', sub:'Day 1 晚餐補給｜Day 5 午餐＋最後採買',
+      ph:[], emo:'🛍️',
+      body:'沖繩最南端的大型商場，<b>DMM 水族館就在同一棟樓上</b>，Day 1 晚餐補給與 Day 5 最後採買都在這裡。<h4>👕 服飾</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>UNIQLO</span><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>GU</span><span class=\'bc\' style=\'--bg:#003DA5;--fg:#fff\'>ABC-MART</span></div><h4>🏠 居家生活</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#F5C400;--fg:#1A1A1A\'>LOFT</span><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>3COINS</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>DAISO</span></div><h4>🎁 伴手禮</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#2A9D8F;--fg:#fff\'>沖繩特產專區</span><span class=\'bc\' style=\'--bg:#0068B7;--fg:#fff\'>Blue Seal</span><span class=\'bc\' style=\'--bg:#8B1A1A;--fg:#fff\'>御菓子御殿</span></div><h4>👶 親子推薦</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#2A9D8F;--fg:#fff\'>DMM Kariyushi Aquarium</span><span class=\'bc\' style=\'--bg:#6B7A8F;--fg:#fff\'>親子用品店</span></div><br><b>實戰提示</b>：Day 1 先解決晚餐＋超市補給（水、零食、隔天早餐）再北上；重的伴手禮留到 <b>Day 5</b> 買，直接上車不用扛。單店滿 5,000 日圓可辦免稅，記得帶護照。',
+      links:[{t:'🌐 官方網站', h:'https://toyosaki.iias.jp/'},{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=iias+Okinawa+Toyosaki', lite:true}]
+    },
+
+    rycomshop: {
+      tag:'購物', title:'AEON MALL Rycom・必逛品牌', sub:'Day 3｜13:00–15:30 午餐＋購物',
+      ph:[], emo:'🛒',
+      body:'沖繩最大級的 AEON 購物城，5 層樓、<b>約 200 多家店舖</b>，一進門挑高中庭的大水槽就是地標。<h4>👕 日本服飾</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>UNIQLO</span><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>GU</span><span class=\'bc\' style=\'--bg:#E4002B;--fg:#fff\'>WEGO</span><span class=\'bc\' style=\'--bg:#F39800;--fg:#fff\'>WORKMAN GIRL</span><span class=\'bc\' style=\'--bg:#6B6B6B;--fg:#fff\'>coca</span></div><h4>👟 鞋類・配件</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#003DA5;--fg:#fff\'>ABC-MART</span><span class=\'bc\' style=\'--bg:#C8102E;--fg:#fff\'>Ray-Ban</span></div><h4>🏠 生活雜貨</h4><div class=\'brands\'><span class=\'bc star\' style=\'--bg:#F5C400;--fg:#1A1A1A\'>LOFT</span><span class=\'bc star\' style=\'--bg:#1A1A1A;--fg:#fff\'>3COINS+plus</span><span class=\'bc star\' style=\'--bg:#E60044;--fg:#fff\'>Francfranc</span><span class=\'bc\' style=\'--bg:#0F5C2E;--fg:#fff\'>NITORI</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>DAISO</span></div><h4>🎮 動漫・玩具</h4><div class=\'brands\'><span class=\'bc star\' style=\'--bg:#FFCB05;--fg:#1A1A1A\'>Pokémon Center Okinawa</span><span class=\'bc\' style=\'--bg:#7B5EA7;--fg:#fff\'>Gashapon 扭蛋</span><span class=\'bc\' style=\'--bg:#4A6FA5;--fg:#fff\'>書店</span></div><h4>💄 美妝・藥妝</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#E5006D;--fg:#fff\'>@cosme store</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>KOJIMA × Bic Camera</span></div><br><b>實戰提示</b>：<b>Pokémon Center Okinawa 是沖繩唯一一間</b>，有衝浪皮卡丘等縣限定周邊，先去再逛其他。LOFT、3COINS、Francfranc 是雜貨三強，時間有限就鎖定這三家。先吃午餐再逛才不會排隊排掉時間；退稅櫃檯集中辦理，記得帶護照，15:30 準時出發往美國村。',
+      links:[{t:'🌐 官方網站', h:'https://okinawarycom-aeonmall.com/'},{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom', lite:true}]
+    },
+
+    amshop: {
+      tag:'購物', title:'美國村・品牌推薦', sub:'Day 3｜16:00–17:00 快閃逛街',
+      ph:[], emo:'🏄',
+      body:'北谷町的美式風情露天街區，彩色建築與海濱步道，逛街拍照都適合。<h4>🛹 美式潮流</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>Vans</span><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>Converse</span><span class=\'bc\' style=\'--bg:#1A1A1A;--fg:#fff\'>HUF</span><span class=\'bc\' style=\'--bg:#2B2B2B;--fg:#fff\'>RVCA</span></div><h4>🌺 沖繩限定</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#0068B7;--fg:#fff\'>Blue Seal</span><span class=\'bc\' style=\'--bg:#00A0E9;--fg:#fff\'>Splash Okinawa</span><span class=\'bc\' style=\'--bg:#C1663B;--fg:#fff\'>美式雜貨</span></div><h4>☕ 咖啡</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#4B3621;--fg:#fff\'>ZHYVAGO Coffee</span><span class=\'bc\' style=\'--bg:#00704A;--fg:#fff\'>Starbucks</span></div><br><b>實戰提示</b>：只有 <b>1 小時</b>，建議直奔 Depot Island 一帶（潮牌與雜貨最密集），順手買支 Blue Seal 邊走邊吃、到海濱步道看一眼海就好；17:00 走路去旁邊的琉球の牛，不用移車。',
+      links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E7%BE%8E%E6%B5%9C%E7%BE%8E%E5%9C%8B%E6%9D%91'}]
+    },
+
+    kokusaishop: {
+      tag:'購物', title:'國際通・購物推薦', sub:'Day 4｜16:30–20:00 逛街與伴手禮',
+      ph:[], emo:'🎁',
+      body:'全長約 1.6 公里的那霸主街，伴手禮、藥妝、雜貨一次補齊。<h4>🎁 沖繩限定伴手禮</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#8B1A1A;--fg:#fff\'>御菓子御殿</span><span class=\'bc\' style=\'--bg:#4A90A4;--fg:#fff\'>鹽屋 SHIOYA</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>Calbee+</span><span class=\'bc\' style=\'--bg:#C77C2E;--fg:#fff\'>南風堂</span></div><h4>💄 美妝・藥妝</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#0068B7;--fg:#fff\'>松本清 matsukiyo</span><span class=\'bc\' style=\'--bg:#E60012;--fg:#fff\'>大國藥妝</span></div><h4>🛒 雜貨・家電</h4><div class=\'brands\'><span class=\'bc\' style=\'--bg:#FFD800;--fg:#1A1A1A\'>唐吉訶德 ドンキ</span><span class=\'bc\' style=\'--bg:#F5C400;--fg:#1A1A1A\'>LOFT</span><span class=\'bc\' style=\'--bg:#197A43;--fg:#fff\'>Hands</span></div><br><b>實戰提示</b>：御菓子御殿的<b>紅芋塔</b>、鹽屋的<b>雪鹽霜淇淋</b>、Calbee+ 的<b>現炸薯條三兄弟</b>是三大必買。伴手禮<b>先走市場本通等商店街比價再回頭買</b>，通常比大街便宜；唐吉訶德營業到很晚，最後再逛。單店滿 5,000 日圓辦免稅，護照要隨身帶。',
+      links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E9%9A%9B%E9%80%9A'}]
+    },
+
+    tondou: {
+      tag:'餐廳', title:'琉球新麵 通堂（小祿本店）', sub:'Day 4｜12:30–13:20・沖繩人氣拉麵',
+      ph:[], emo:'🍜',
+      body:'沖繩在地的人氣拉麵店，以「琉球新麵」為名，湯頭走沖繩自創路線。招牌是兩碗個性完全相反的麵：濃厚豚骨的<b>男味拉麵</b>，與雞白湯清爽系的<b>女味拉麵</b>——兩人各點一碗剛好互換著吃。桌上免費的<b>醃蒜頭與豆芽</b>可自由取用，配麵解膩。<br><b>實戰提示</b>：11:00 開門前後抵達最不用排隊；小祿本店設有停車場，從沖繩世界回那霸的路上順路。',
+      links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%90%83%E6%96%B0%E9%BA%BA+%E9%80%9A%E5%A0%82+%E5%B0%8F%E7%A5%BF%E6%9C%AC%E5%BA%97'},{t:'🔎 菜單與食物照', h:'https://www.google.com/search?q=%E9%80%9A%E5%A0%82+%E5%B0%8F%E7%A5%BF+%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC', lite:true}]
+    },
+
+    shinboo: {
+      tag:'購物', title:'OKINAWA SHIN BOO（沖繩媳婦）', sub:'Day 4｜14:30–15:00・台灣人開的伴手禮店',
+      ph:[], emo:'🛍️',
+      body:'由嫁到沖繩的台灣人經營的伴手禮店，<b>中文溝通零障礙</b>，可以直接問「哪個好吃、哪個好送人」，是第一次買沖繩伴手禮時最省時的一站。店內以沖繩在地零食、黑糖、海鹽、調味料與各式伴手禮為主，常有整組包裝好的組合方便帶回台灣。<br><b>實戰提示</b>：先在這裡問清楚行情與推薦，晚上到國際通就知道該不該再補貨；買太多可以問問寄送與保存方式。',
+      links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=OKINAWA+SHIN+BOO'},{t:'🔎 店家資訊與評價', h:'https://www.google.com/search?q=OKINAWA+SHIN+BOO+%E6%B2%96%E7%B9%A9%E5%AA%B3%E5%A9%A6', lite:true}]
     }
   };
   var mask = document.getElementById('sheet-mask');
@@ -1092,7 +1149,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     mask.classList.remove('open'); sheet.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.querySelectorAll('.proto .tl li.tap').forEach(function(li){
+  document.querySelectorAll('[data-d]').forEach(function(li){
     li.addEventListener('click', function(){ open(li.dataset.d); });
   });
   mask.addEventListener('click', close);
