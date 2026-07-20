@@ -285,6 +285,45 @@ details.fold>summary:hover h2{color:var(--sea)}
 .shop .shb a{display:inline-block;margin-top:8px;font-size:.8rem;font-weight:700;color:var(--sea);text-decoration:none}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
 .legend span{font-size:.72rem;font-weight:700;color:#fff;border-radius:999px;padding:4px 10px}
+/* ===== 目前時段高亮 ===== */
+.tl li.now .act{
+  background:linear-gradient(135deg,#FFF3E4,#FFE7D2);
+  border-color:var(--coral) !important;
+  box-shadow:0 4px 16px rgba(232,122,62,.18);
+}
+.tl li.now .dot{
+  background:var(--coral);
+  border-color:#FFD9C6;
+  box-shadow:0 0 0 5px rgba(232,122,62,.18);
+  animation:nowPulse 2s ease-in-out infinite;
+}
+.tl li.now .time{color:var(--coral);font-weight:900}
+.tl li.now .act::before{
+  content:"NOW";
+  display:inline-block;
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#fff;
+  background:var(--coral);
+  border-radius:5px;
+  padding:2px 6px;
+  margin-right:8px;
+  vertical-align:2px;
+}
+@keyframes nowPulse{
+  0%,100%{box-shadow:0 0 0 5px rgba(232,122,62,.18)}
+  50%{box-shadow:0 0 0 9px rgba(232,122,62,.06)}
+}
+.today-note{
+  font-size:.8rem;
+  font-weight:700;
+  color:var(--coral);
+  background:#FFF3E4;
+  border-radius:10px;
+  padding:8px 12px;
+  margin:0 0 12px;
+}
 .proto-hint{font-size:.8rem;color:var(--sea);background:var(--foam);border-radius:10px;padding:8px 14px;margin-top:12px}
 
 /* ===== 底部詳情面板 ===== */
@@ -1199,20 +1238,42 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     }).join('');
     inner.innerHTML = '<span class="sh-tag">'+d.tag+'</span><h3>'+d.title+'</h3><div class="sh-sub">'+d.sub+'</div>'
       + ph + '<div class="sh-body">'+d.body+'</div><div class="sh-links">'+links+'</div>';
-    mask.classList.add('open'); sheet.classList.add('open');
+    mask.classList.add('open');
+    sheet.classList.add('open');
     document.body.style.overflow = 'hidden';
     sheet.scrollTop = 0;
+
+    // 推一筆歷史紀錄，讓手機返回鍵可以關閉面板而不是離開網頁
+    if(!history.state || history.state.sheet !== true){
+      history.pushState({sheet:true}, '');
+    }
   }
-  function close(){
-    mask.classList.remove('open'); sheet.classList.remove('open');
+
+  function close(fromPop){
+    var wasOpen = sheet.classList.contains('open');
+    mask.classList.remove('open');
+    sheet.classList.remove('open');
     document.body.style.overflow = '';
+
+    // 用 ✕／遮罩／Esc 關閉時，把剛才推入的歷史紀錄退掉
+    if(wasOpen && !fromPop && history.state && history.state.sheet === true){
+      history.back();
+    }
   }
+
+  // 手機返回鍵：優先關閉面板
+  window.addEventListener('popstate', function(){
+    if(sheet.classList.contains('open')) close(true);
+  });
   document.querySelectorAll('[data-d]').forEach(function(li){
     li.addEventListener('click', function(){ open(li.dataset.d); });
   });
-  mask.addEventListener('click', close);
-  document.getElementById('sheet-close').addEventListener('click', close);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  mask.addEventListener('click', function(){ close(); });
+  document.getElementById('sheet-close')
+    .addEventListener('click', function(){ close(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') close();
+  });
 })();
 
 // 圖片放大檢視
@@ -1262,6 +1323,88 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   }
   var act = document.querySelector('.tab.active');
   syncGuide(act ? act.dataset.day : 'd1');
+
+  /* ===== 旅行期間：自動跳到今天、標出目前時段 ===== */
+  var TRIP = {
+    d1: '2026-09-02',
+    d2: '2026-09-03',
+    d3: '2026-09-04',
+    d4: '2026-09-05',
+    d5: '2026-09-06'
+  };
+
+  // 以日本時間（UTC+9）為準
+  function jstNow(){
+    var n = new Date();
+    return new Date(n.getTime() + (n.getTimezoneOffset() + 540) * 60000);
+  }
+
+  // 取出「09:00」「13:40 15:00」這類時間格，回傳起訖分鐘數
+  function parseRow(li){
+    var cell = li.querySelector('.time');
+    if(!cell) return null;
+    var hits = (cell.textContent || '').match(/\d{1,2}:\d{2}/g);
+    if(!hits || !hits.length) return null;
+    var toMin = function(s){
+      var p = s.split(':');
+      return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+    };
+    return {
+      start: toMin(hits[0]),
+      end: hits.length > 1 ? toMin(hits[1]) : null
+    };
+  }
+
+  function markNow(){
+    document.querySelectorAll('.tl li.now').forEach(function(li){
+      li.classList.remove('now');
+    });
+
+    var now = jstNow();
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+    var today = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+
+    var dayId = null;
+    for(var k in TRIP){ if(TRIP[k] === today) dayId = k; }
+    if(!dayId) return null;
+
+    var mins = now.getHours() * 60 + now.getMinutes();
+    var rows = document.querySelectorAll('#' + dayId + ' .tl li');
+    var target = null;
+
+    rows.forEach(function(li){
+      var t = parseRow(li);
+      if(!t) return;
+      var end = t.end !== null ? t.end : t.start + 40;
+      if(mins >= t.start && mins < end) target = li;
+    });
+
+    // 沒有正在進行的區段時，標出「下一個」項目
+    if(!target){
+      for(var i = 0; i < rows.length; i++){
+        var t2 = parseRow(rows[i]);
+        if(t2 && t2.start > mins){ target = rows[i]; break; }
+      }
+    }
+    if(target) target.classList.add('now');
+    return dayId;
+  }
+
+  var todayId = markNow();
+  if(todayId){
+    var todayTab = document.querySelector('.tab[data-day="' + todayId + '"]');
+    if(todayTab) activate(todayTab, false);
+
+    var panel = document.getElementById(todayId);
+    var body = panel && panel.querySelector('.day-body');
+    if(body){
+      var note = document.createElement('div');
+      note.className = 'today-note';
+      note.innerHTML = '📍 今天就是這一天！橘色標記是目前（或下一個）行程。';
+      body.insertBefore(note, body.firstChild);
+    }
+    setInterval(markNow, 60000);
+  }
   var list = Array.prototype.slice.call(tabs);
 
   function activate(t, scroll){
@@ -1336,6 +1479,17 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     if(e.key === 'ArrowLeft') step(-1, false);
   });
 })();
+</script>
+
+<script>
+/* ===== 離線支援：註冊 Service Worker ===== */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').catch(function(err){
+      console.log('SW 註冊失敗（用瀏覽器直接開啟本機檔案時屬正常）', err);
+    });
+  });
+}
 </script>
 </body>
 </html>
