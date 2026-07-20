@@ -473,7 +473,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       <li><span class="time">晚上</span><span class="dot"></span><span class="act">海灘散步、早點休息 🌙</span></li>
     </ul>
     <div class="shoprow"><button type="button" class="shopbtn" data-d="iiasshop">🛍️ iias 品牌推薦<span class="arw">›</span></button></div>
-    <div class="proto-hint">💡 帶「›」的項目可以直接點開，看介紹、照片與地圖（每一天都可以用）。</div>
+    <div class="proto-hint">💡 帶「›」的項目可以直接點開，看介紹、照片與地圖；行程區塊<b>左右滑動</b>可以切換天數。</div>
     <div class="note"><b>當日重點</b>：取車後先在同一區的 iias 解決晚餐、超市補給完再北上，抵達名護就能直接休息，不用摸黑找吃的。</div>
   </div>
 </section>
@@ -1262,18 +1262,78 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   }
   var act = document.querySelector('.tab.active');
   syncGuide(act ? act.dataset.day : 'd1');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      tabs.forEach(function(x){x.classList.remove('active')});
-      t.classList.add('active');
-      document.querySelectorAll('.day').forEach(function(p){p.classList.remove('show')});
-      var panel = document.getElementById(t.dataset.day);
-      panel.classList.add('show');
-      syncGuide(t.dataset.day);
+  var list = Array.prototype.slice.call(tabs);
+
+  function activate(t, scroll){
+    if(!t) return;
+    tabs.forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active');
+    document.querySelectorAll('.day').forEach(function(p){p.classList.remove('show')});
+    var panel = document.getElementById(t.dataset.day);
+    if(panel) panel.classList.add('show');
+    syncGuide(t.dataset.day);
+    if(t.scrollIntoView) t.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'});
+    if(scroll !== false){
       var sticky = document.querySelector('.tabs-sticky');
-      var top = sticky.getBoundingClientRect().top + window.scrollY;
-      if(window.scrollY > top) window.scrollTo({top: top - 4, behavior: 'smooth'});
-    });
+      if(sticky){
+        var top = sticky.getBoundingClientRect().top + window.scrollY;
+        if(window.scrollY > top) window.scrollTo({top: top - 4, behavior: 'smooth'});
+      }
+    }
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ activate(t, true); });
+  });
+
+  function step(dir, scroll){
+    var cur = document.querySelector('.tab.active');
+    var i = list.indexOf(cur);
+    if(i < 0) return;
+    var n = i + dir;
+    if(n < 0 || n >= list.length) return;
+    activate(list[n], scroll);
+  }
+
+  /* ---- 左右滑動換天 ---- */
+  document.querySelectorAll('.day').forEach(function(wrap){
+    var x0 = 0, y0 = 0, t0 = 0, lock = null;
+    wrap.addEventListener('touchstart', function(e){
+      if(e.touches.length !== 1){ lock = 'no'; return; }
+      var t = e.touches[0];
+      x0 = t.clientX; y0 = t.clientY; t0 = Date.now(); lock = null;
+      var el = e.target;
+      while(el && el !== wrap){
+        if(el.scrollWidth > el.clientWidth + 4){ lock = 'no'; break; }
+        el = el.parentNode;
+      }
+    }, {passive:true});
+    wrap.addEventListener('touchmove', function(e){
+      if(lock === 'no' || e.touches.length !== 1) return;
+      var t = e.touches[0];
+      var dx = t.clientX - x0, dy = t.clientY - y0;
+      if(lock === null && (Math.abs(dx) > 12 || Math.abs(dy) > 12)){
+        lock = Math.abs(dx) > Math.abs(dy) * 1.4 ? 'x' : 'no';
+      }
+      if(lock === 'x'){ wrap.style.transition = 'none'; wrap.style.transform = 'translateX(' + (dx * 0.22) + 'px)'; }
+    }, {passive:true});
+    wrap.addEventListener('touchend', function(e){
+      var reset = function(){ wrap.style.transition = 'transform .18s ease'; wrap.style.transform = ''; };
+      if(lock !== 'x'){ lock = null; reset(); return; }
+      var dx = e.changedTouches[0].clientX - x0;
+      var fast = (Date.now() - t0) < 400 && Math.abs(dx) > 40;
+      reset();
+      if(Math.abs(dx) > 70 || fast) step(dx < 0 ? 1 : -1, false);
+      lock = null;
+    }, {passive:true});
+  });
+
+  /* ---- 鍵盤左右鍵（桌機） ---- */
+  document.addEventListener('keydown', function(e){
+    if(e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+    if(document.querySelector('.sheet.open')) return;
+    if(e.key === 'ArrowRight') step(1, false);
+    if(e.key === 'ArrowLeft') step(-1, false);
   });
 })();
 </script>
