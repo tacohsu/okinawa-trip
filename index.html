@@ -33,6 +33,217 @@
   --zh:'Noto Sans TC',"PingFang TC","Microsoft JhengHei",sans-serif;
   --en:'Quicksand',var(--zh);
 }
+
+/* ===== 深色模式 =====
+   預設跟隨系統設定；使用者按了切換鈕後，以 <html data-theme> 為準 */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --deep:#8ED4E4;
+    --sea:#4FB6CC;
+    --sea-soft:#2E7E92;
+    --foam:#12303C;
+    --sand:#0E1D25;
+    --coral:#FF9D74;
+    --ink:#E6EFF3;
+    --muted:#9DB4BF;
+    --card:#152B36;
+    --shadow:0 6px 24px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --deep:#8ED4E4;
+  --sea:#4FB6CC;
+  --sea-soft:#2E7E92;
+  --foam:#12303C;
+  --sand:#0E1D25;
+  --coral:#FF9D74;
+  --ink:#E6EFF3;
+  --muted:#9DB4BF;
+  --card:#152B36;
+  --shadow:0 6px 24px rgba(0,0,0,.45);
+}
+
+/* 深色下需要個別調整的區塊 */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .proto .tl li.tap .act{
+    background:#1B333F;
+    border-color:#284A5A !important;
+  }
+  :root:not([data-theme="light"]) .tl li.now .act{
+    background:linear-gradient(135deg,#3A2A22,#4A3225);
+  }
+  :root:not([data-theme="light"]) .today-note{background:#3A2A22}
+  :root:not([data-theme="light"]) img{filter:brightness(.92)}
+}
+:root[data-theme="dark"] .proto .tl li.tap .act{
+  background:#1B333F;
+  border-color:#284A5A !important;
+}
+:root[data-theme="dark"] .tl li.now .act{
+  background:linear-gradient(135deg,#3A2A22,#4A3225);
+}
+:root[data-theme="dark"] .today-note{background:#3A2A22}
+:root[data-theme="dark"] img{filter:brightness(.92)}
+
+/* 右上角浮動切換鈕 */
+
+/* ===== 深色模式：對比度補強 ===== */
+:root[data-theme="dark"],
+:root[data-theme="dark"] *{
+  --chip:#1E6C7E;      /* 白字用的深色底 */
+  --chip-ink:#F2FAFC;
+}
+:root[data-theme="dark"] .tl li.now .act{
+  background:linear-gradient(135deg,#3A2A22,#4A3225);
+  color:#FFE9DC;
+}
+:root[data-theme="dark"] .tl li.now .act::before{
+  background:#FFB694;   /* 淺橘底 */
+  color:#2A1409;        /* 深色字 */
+}
+:root[data-theme="dark"] .tl li.now .time{color:#FFB694}
+:root[data-theme="dark"] .today-note{
+  background:#3A2A22;
+  color:#FFC7A8;
+}
+:root[data-theme="dark"] #sr-list .hit .w,
+:root[data-theme="dark"] .st>summary .stay,
+:root[data-theme="dark"] .shop>summary .tg{
+  background:var(--chip);
+  color:var(--chip-ink);
+}
+:root[data-theme="dark"] #sr-list .hit:hover{
+  background:#1E6C7E;
+  color:#F2FAFC;
+}
+:root[data-theme="dark"] .shopbtn{
+  background:linear-gradient(135deg,#1E6C7E,#134B5A);
+  color:#F2FAFC;
+}
+:root[data-theme="dark"] .legend span{color:#F7FBFC}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .tl li.now .act{color:#FFE9DC}
+  :root:not([data-theme="light"]) .tl li.now .act::before{
+    background:#FFB694;
+    color:#2A1409;
+  }
+  :root:not([data-theme="light"]) .tl li.now .time{color:#FFB694}
+  :root:not([data-theme="light"]) .today-note{color:#FFC7A8}
+  :root:not([data-theme="light"]) #sr-list .hit .w,
+  :root:not([data-theme="light"]) .st>summary .stay,
+  :root:not([data-theme="light"]) .shop>summary .tg{
+    background:#1E6C7E;
+    color:#F2FAFC;
+  }
+  :root:not([data-theme="light"]) #sr-list .hit:hover{
+    background:#1E6C7E;
+    color:#F2FAFC;
+  }
+  :root:not([data-theme="light"]) .shopbtn{
+    background:linear-gradient(135deg,#1E6C7E,#134B5A);
+    color:#F2FAFC;
+  }
+  :root:not([data-theme="light"]) .legend span{color:#F7FBFC}
+}
+
+/* ===== 深色模式：底色寫死的區塊補強 ===== */
+:root[data-theme="dark"]{
+  --note-bg:#33241D;    /* 當日重點／提醒 */
+  --line:#2B4552;       /* 淺色邊框 */
+}
+:root[data-theme="dark"] .note{
+  color:#F0E3DA;
+  border-left-color:#FF9D74;
+}
+:root[data-theme="dark"] .note b{color:#FFB694}
+:root[data-theme="dark"] .sheet{
+  background:var(--card);
+  color:var(--ink);
+}
+:root[data-theme="dark"] .sh-body{color:#D7E5EB}
+:root[data-theme="dark"] .sh-body b{color:#FFFFFF}
+:root[data-theme="dark"] .sh-sub{color:#9DB4BF}
+:root[data-theme="dark"] .sh-links a{
+  background:#1E6C7E;
+  color:#F2FAFC;
+}
+:root[data-theme="dark"] .sh-links a.lite{
+  background:transparent;
+  border:1.5px solid #3E6B7C;
+  color:#BFD9E2;
+}
+:root[data-theme="dark"] .sh-tag{
+  background:#1E6C7E;
+  color:#F2FAFC;
+}
+:root[data-theme="dark"] .tip{color:#DCEAEF}
+:root[data-theme="dark"] .tip b{color:#8ED4E4}
+:root[data-theme="dark"] .proto-hint{color:#BFD9E2}
+:root[data-theme="dark"] .spot .cat{background:#1E6C7E;color:#F2FAFC}
+:root[data-theme="dark"] #sheet-close{
+  background:#22404E;
+  color:#E6EFF3;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --note-bg:#33241D;
+    --line:#2B4552;
+  }
+  :root:not([data-theme="light"]) .note{
+    color:#F0E3DA;
+    border-left-color:#FF9D74;
+  }
+  :root:not([data-theme="light"]) .note b{color:#FFB694}
+  :root:not([data-theme="light"]) .sheet{
+    background:var(--card);
+    color:var(--ink);
+  }
+  :root:not([data-theme="light"]) .sh-body{color:#D7E5EB}
+  :root:not([data-theme="light"]) .sh-body b{color:#FFFFFF}
+  :root:not([data-theme="light"]) .sh-sub{color:#9DB4BF}
+  :root:not([data-theme="light"]) .sh-links a{
+    background:#1E6C7E;
+    color:#F2FAFC;
+  }
+  :root:not([data-theme="light"]) .sh-links a.lite{
+    background:transparent;
+    border:1.5px solid #3E6B7C;
+    color:#BFD9E2;
+  }
+  :root:not([data-theme="light"]) .sh-tag{
+    background:#1E6C7E;
+    color:#F2FAFC;
+  }
+  :root:not([data-theme="light"]) .tip{color:#DCEAEF}
+  :root:not([data-theme="light"]) .tip b{color:#8ED4E4}
+  :root:not([data-theme="light"]) .proto-hint{color:#BFD9E2}
+  :root:not([data-theme="light"]) .spot .cat{background:#1E6C7E;color:#F2FAFC}
+  :root:not([data-theme="light"]) #sheet-close{
+    background:#22404E;
+    color:#E6EFF3;
+  }
+}
+#theme-btn{
+  position:fixed;
+  right:14px;
+  bottom:16px;
+  z-index:60;
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:50%;
+  background:var(--card);
+  color:var(--deep);
+  font-size:1.15rem;
+  cursor:pointer;
+  box-shadow:0 4px 18px rgba(0,0,0,.22);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#theme-btn:active{transform:scale(.94)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--zh);color:var(--ink);background:var(--sand);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -139,7 +350,7 @@ section{margin-top:44px}
 .spots-title::before{content:"🐚"}
 .spots-title .en{font-family:var(--en);font-weight:700;font-size:.72rem;letter-spacing:.22em;color:var(--sea);text-transform:uppercase}
 .spots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
-.spot{background:var(--sand);border-radius:14px;overflow:hidden;border:1px solid #EDE4D2;display:flex;flex-direction:column}
+.spot{background:var(--sand);border-radius:14px;overflow:hidden;border:1px solid var(--line,#EDE4D2);display:flex;flex-direction:column}
 .spot .ph{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--foam),var(--sea-soft));overflow:hidden}
 .spot .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .spot:hover .ph img{transform:scale(1.05)}
@@ -152,7 +363,7 @@ section{margin-top:44px}
 @media (prefers-reduced-motion:reduce){.spot:hover .ph img{transform:none}}
 
 /* note card */
-.note{margin-top:14px;background:#FFF4EC;border-left:5px solid var(--coral);border-radius:10px;padding:14px 18px;font-size:.88rem}
+.note{margin-top:14px;background:var(--note-bg,#FFF4EC);border-left:5px solid var(--coral);border-radius:10px;padding:14px 18px;font-size:.88rem}
 .note b{color:var(--coral)}
 .note ul{margin:6px 0 0 1.2em}
 .tip{margin-top:14px;background:var(--foam);border-left:5px solid var(--sea);border-radius:10px;padding:14px 18px;font-size:.88rem}
@@ -264,7 +475,6 @@ details.fold>summary:hover h2{color:var(--sea)}
 .st>summary .ic{font-size:1.25rem;line-height:1}
 .st>summary .nm{font-size:1rem;font-weight:900;color:var(--deep);flex:1;min-width:120px}
 .st>summary .stay{font-size:.72rem;font-weight:800;color:#fff;background:var(--c,#5AA9C9);border-radius:999px;padding:3px 9px;white-space:nowrap}
-.st>summary .rt{font-size:.72rem;color:#E8A33D;letter-spacing:-1px}
 .st>summary .arw{width:9px;height:9px;border-right:2.5px solid var(--c,#5AA9C9);border-bottom:2.5px solid var(--c,#5AA9C9);transform:rotate(45deg);margin-top:-3px;transition:transform .2s}
 .st[open]>summary .arw{transform:rotate(-135deg);margin-top:3px}
 .st .stb{padding:0 16px 16px}
@@ -279,7 +489,6 @@ details.fold>summary:hover h2{color:var(--sea)}
 .shop>summary .dot{width:9px;height:9px;border-radius:50%;background:var(--c2,#5AA9C9);flex:0 0 auto}
 .shop>summary .nm2{font-size:.9rem;font-weight:800;color:var(--deep);flex:1}
 .shop>summary .tg{font-size:.68rem;font-weight:800;color:#fff;background:var(--c2,#5AA9C9);border-radius:6px;padding:2px 7px;white-space:nowrap}
-.shop>summary .rt2{font-size:.7rem;color:#E8A33D;letter-spacing:-1px;white-space:nowrap}
 .shop .shb{padding:0 12px 12px;font-size:.86rem;line-height:1.8;color:var(--muted)}
 .shop .shb b{color:var(--ink)}
 .shop .shb a{display:inline-block;margin-top:8px;font-size:.8rem;font-weight:700;color:var(--sea);text-decoration:none}
@@ -305,7 +514,7 @@ details.fold>summary:hover h2{color:var(--sea)}
   font-weight:900;
   letter-spacing:.08em;
   color:#fff;
-  background:var(--coral);
+  background:#C2521F;   /* 深橘，配白字對比足夠 */
   border-radius:5px;
   padding:2px 6px;
   margin-right:8px;
@@ -324,12 +533,73 @@ details.fold>summary:hover h2{color:var(--sea)}
   padding:8px 12px;
   margin:0 0 12px;
 }
+/* ===== 店家搜尋 ===== */
+.tool.search input{
+  width:100%;
+  font:inherit;
+  font-size:.95rem;
+  padding:11px 14px;
+  border:1.5px solid var(--foam);
+  border-radius:12px;
+  background:var(--card);
+  color:var(--ink);
+}
+.tool.search input:focus{outline:none;border-color:var(--sea)}
+#sr-list{margin-top:10px;max-height:300px;overflow-y:auto}
+#sr-list .hit{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  width:100%;
+  text-align:left;
+  font:inherit;
+  font-size:.86rem;
+  padding:9px 11px;
+  margin-bottom:6px;
+  border:0;
+  border-radius:10px;
+  background:var(--foam);
+  color:var(--ink);
+  cursor:pointer;
+}
+#sr-list .hit:hover{background:var(--sea-soft);color:#fff}
+#sr-list .hit .k{
+  font-weight:800;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  min-width:0;
+}
+#sr-list .hit .k .t{
+  font-style:normal;
+  font-size:.72rem;
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:.02em;
+}
+#sr-list .hit:hover .k .t{color:rgba(255,255,255,.85)}
+#sr-list .hit .w{
+  font-size:.68rem;
+  font-weight:700;
+  color:#fff;
+  background:var(--sea);
+  border-radius:5px;
+  padding:2px 6px;
+  white-space:nowrap;
+}
+#sr-empty{font-size:.82rem;color:var(--muted);margin-top:8px}
+.flash{animation:flashIn 1.6s ease}
+@keyframes flashIn{
+  0%,100%{box-shadow:none}
+  30%{box-shadow:0 0 0 4px rgba(255,138,92,.45)}
+}
 .proto-hint{font-size:.8rem;color:var(--sea);background:var(--foam);border-radius:10px;padding:8px 14px;margin-top:12px}
 
 /* ===== 底部詳情面板 ===== */
 .sheet-mask{position:fixed;inset:0;background:rgba(10,40,60,.5);z-index:90;opacity:0;pointer-events:none;transition:opacity .25s}
 .sheet-mask.open{opacity:1;pointer-events:auto}
-.sheet{position:fixed;left:0;right:0;bottom:0;max-width:720px;margin:0 auto;max-height:85vh;background:#fff;border-radius:22px 22px 0 0;z-index:91;transform:translateY(102%);transition:transform .3s cubic-bezier(.3,.8,.3,1);overflow-y:auto;box-shadow:0 -8px 40px rgba(12,65,96,.25)}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:720px;margin:0 auto;max-height:85vh;background:var(--card);border-radius:22px 22px 0 0;z-index:91;transform:translateY(102%);transition:transform .3s cubic-bezier(.3,.8,.3,1);overflow-y:auto;box-shadow:0 -8px 40px rgba(12,65,96,.25)}
 .sheet.open{transform:none}
 .sheet .grab{width:44px;height:5px;border-radius:99px;background:#D8D2C4;margin:10px auto 0}
 .sheet .sh-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border:none;border-radius:50%;background:var(--sand);color:var(--muted);font-size:1rem;cursor:pointer;font-weight:700}
@@ -390,6 +660,12 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   </summary>
   <div class="fold-body">
   <div class="tools" style="margin-top:14px">
+    <div class="tool search">
+      <h4>🔎 店家・景點搜尋</h4>
+      <input id="sr-q" type="search" placeholder="輸入店名或關鍵字，例如：雪鹽、琉球の牛、陶器" autocomplete="off">
+      <div id="sr-list"></div>
+      <p class="small-note" id="sr-empty">可搜尋行程景點、餐廳、商店街與購物攻略裡的所有店家。</p>
+    </div>
     <div class="tool">
       <h4>💱 匯率計算機</h4>
       <div class="fx-row"><input id="fx-a" type="number" inputmode="decimal" value="1000"><span class="cur">JPY</span></div>
@@ -710,7 +986,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     <span style="background:#6B4E3D">咖啡甜點</span>
     <span style="background:#3F4E8C">夜生活</span>
   </div>
-<div class="gd2"><details class="st" style="--c:#E07A3E"><summary><span class="ic">🏙️</span><span class="nm">國際通（国際通り）</span><span class="stay">60–90 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kokusai-dori08s3s4440.jpg?width=800" alt="國際通（国際通り）" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">沖繩最熱鬧的購物大道，全長約 1.6 公里、聚集約 600 間店，伴手禮、餐廳、藥妝、百貨與文創品牌一路排到底。多數店家營業到晚上 10 點，是這一區的主動脈。</p><h5>推薦店家（點開看介紹）</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Calbee+ 國際通店</span><span class="tg">美食</span></summary><div class="shb">現點現炸的薯條是這裡的招牌，酥脆度跟超市買的完全兩回事，排隊也值得。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>現炸薯條（現場吃）</li><li>Poteriko</li><li>沖繩限定洋芋片、限定伴手禮</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Calbee+%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">雪鹽專賣店（塩屋）</span><span class="tg">美食</span></summary><div class="shb">宮古島雪鹽做的甜點與霜淇淋，霜淇淋可以自己撒不同風味的鹽，鹹甜交錯很有記憶點。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>雪鹽霜淇淋</li><li>雪鹽金楚糕、雪鹽餅乾</li><li>各式風味鹽</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E5%B1%8B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">JAM MARKET</span><span class="tg">文創選物</span></summary><div class="shb">沖繩代表性的文創品牌，鯨鯊與風獅爺系列設計感強，買紀念品不容易跟別人撞款。<h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>沖繩限定 T-shirt（鯨鯊、風獅爺）</li><li>帆布袋、帽子</li><li>貼紙、徽章</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=JAM%20MARKET%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#7B5EA7"><summary><span class="dot"></span><span class="nm2">唐吉訶德 國際通店</span><span class="tg">藥妝</span><span class="rt2">★ 3.8</span></summary><div class="shb">營業到凌晨的最後補貨站，離開前把清單一次刷完最省事。<h5 style="color:#7B5EA7;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>零食、泡麵、日本限定 KitKat 與 Pocky</li><li>藥妝、保健食品、面膜</li><li>泡澡粉、泳具</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%94%90%E5%90%89%E8%A8%B6%E5%BE%B7%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">わしたショップ Washita</span><span class="tg">伴手禮</span><span class="rt2">★ 3.9</span></summary><div class="shb">整間店都是沖繩縣產品，品質穩定，不用擔心買到觀光客取向的商品。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>黑糖、泡盛、島辣椒醬</li><li>沖繩限定泡麵、調味料</li><li>農產加工品</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%8F%E3%81%97%E3%81%9F%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">御菓子御殿 國際通松尾店</span><span class="tg">伴手禮</span></summary><div class="shb">紅芋塔的名店，現場常有試吃，買回台灣送人幾乎不會出錯。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>紅芋塔（元祖）</li><li>紅芋生塔、金楚糕</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8F%93%E5%AD%90%E5%BE%A1%E6%AE%BF%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#7B5EA7"><summary><span class="dot"></span><span class="nm2">大國藥妝（牧志店・縣廳前店）</span><span class="tg">藥妝</span><span class="rt2">★ 4.7 / 4.4</span></summary><div class="shb">國際通上有兩間，擇近的逛即可，價格常有折扣。<h5 style="color:#7B5EA7;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>EVE 止痛藥、合利他命</li><li>小林製藥系列、眼藥水</li><li>面膜、防曬乳、休足時間</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%83%80%E3%82%A4%E3%82%B3%E3%82%AF%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Blue Seal 國際通店</span><span class="tg">美食</span><span class="rt2">★ 4.3</span></summary><div class="shb">「生於美國、長於沖繩」的老牌冰淇淋，逛街中途最好的降溫方式。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>鹽味牛奶、沖繩黑糖</li><li>紅芋、紫芋起司</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Blue%20Seal%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">A&W 國際通牧志店</span><span class="tg">美食</span></summary><div class="shb">沖繩獨有的美式速食，麥根沙士（Root Beer）是傳說中的味道，值得試一次再決定愛不愛。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>麥根沙士（可續杯）</li><li>起司漢堡、捲捲薯條</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=A%26W%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">牛かつ もと村 國際通本店</span><span class="tg">美食</span><span class="rt2">★ 4.9</span></summary><div class="shb">超人氣炸牛排定食，自己在小石板上煎到喜歡的熟度，晚餐沒想法時的安全牌。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%89%9B%E3%81%8B%E3%81%A4%E3%82%82%E3%81%A8%E6%9D%91%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">RESORT DEPARTMENT STORE（RYUBO 2F）</span><span class="tg">文創選物</span><span class="rt2">★ 4.3</span></summary><div class="shb">預算高一點時的選擇，琉球設計品牌與高質感生活用品，適合買正式一點的禮物。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%83%AA%E3%82%86%E3%81%BC%E3%82%A6%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">Splash Okinawa</span><span class="tg">文創選物</span></summary><div class="shb">插畫風格的沖繩設計品牌，色彩鮮豔，小物與服飾都好挑。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Splash%20Okinawa%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">Mi-ja 沖繩伴手禮（多家分店）</span><span class="tg">伴手禮</span></summary><div class="shb">國際通與平和通一帶有多家分店，商品齊全，適合一站買齊。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>零食、黑糖</li><li>琉球玻璃、風獅爺擺飾</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mi-ja%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#2A9D8F"><summary><span class="ic">🏮</span><span class="nm">平和通商店街</span><span class="stay">30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">全長約 330 公尺的<b>有頂拱廊</b>，下雨天也能悠閒逛。老店與小攤密集，很多東西比主街便宜，是撿便宜與挖特色伴手禮的地方。</p><h5 style="--c:#2A9D8F">必買</h5><ul><li>琉球玻璃、黑糖</li><li>沖繩零食、紫芋點心</li><li>手工藝品、風獅爺小物</li><li>在地水果果汁</li></ul><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">Mi-ja・各式伴手禮小店</span><span class="tg">伴手禮</span><span class="rt2">★ 4.1</span></summary><div class="shb">拱廊兩側都是小型伴手禮店，同款商品可以多比兩家再下手。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%B9%B3%E5%92%8C%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#C24E4E"><summary><span class="ic">🐟</span><span class="nm">市場本通</span><span class="stay">20–30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">連接國際通與牧志市場的老街，生活感最重的一條。攤商、熟食店與水果店密集，走一趟就能感受那霸日常。</p><h5 style="--c:#C24E4E">必買</h5><ul><li>海葡萄、島辣椒</li><li>黑糖、沖繩香料</li><li>現切水果</li></ul></div></details><details class="st" style="--c:#C24E4E"><summary><span class="ic">🐠</span><span class="nm">第一牧志公設市場</span><span class="rt">★ 4.1</span><span class="stay">30–40 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/JP-47_Naha_Makishi-Public-Market.jpg?width=800" alt="第一牧志公設市場" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">2023 年整修重新開幕的「那霸的廚房」，1F 是熱帶魚鮮、縣產豬肉與醃漬小菜，2F 食堂街可以樓下買、樓上代客料理（持ち上げ）。體驗沖繩飲食文化最直接的地方。</p><h5 style="--c:#C24E4E">必吃・必買</h5><ul><li>石垣牛、當日海鮮、夜光貝</li><li>海葡萄、沖繩黑糖</li><li>島辣椒、島胡椒、沖繩味噌</li><li>鰹魚高湯包、花生豆腐、沖繩香腸</li></ul><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">大城屋</span><span class="tg">伴手禮</span></summary><div class="shb">市場周邊的老字號伴手禮店，在地人與熟客會去的地方，<b>價格常比國際通與機場便宜</b>。<br><b>三件事要記得</b>：<b>不能退稅</b>、<b>只收現金</b>、大量採買先備好日圓。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>紅芋塔、金楚糕</li><li>黑糖、鹽味零食</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9F%8E%E5%B1%8B%20%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#A9744F"><summary><span class="ic">🏺</span><span class="nm">壺屋やちむん通</span><span class="stay">45–60 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/JP-47_Naha_Tsuboya-Yachimun-dori_street.jpg?width=800" alt="壺屋やちむん通" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">沖繩陶器「やちむん」的發源地，石板路兩旁保留百年陶藝工坊與紅瓦老屋，是那霸最適合慢慢散步的一段。<b>注意：多數陶器店 18:00 前打烊</b>，想逛要提早過來。</p><h5 style="--c:#A9744F">必買</h5><ul><li>やちむん陶器、手工馬克杯</li><li>飯碗、茶具、小碟</li><li>風獅爺陶偶</li></ul><h5>推薦店家</h5><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">育陶園</span><span class="tg">陶器工藝</span></summary><div class="shb">壺屋燒的代表品牌，傳統紋樣與厚實手感，適合買一組帶回家天天用。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%82%B2%E9%99%B6%E5%9C%92%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">guma guwa</span><span class="tg">陶器工藝</span></summary><div class="shb">育陶園旗下的姊妹品牌，器皿線條較輕巧現代，白瓷與淡色系好搭。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=guma%20guwa%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">壺屋燒物博物館</span><span class="tg">陶器工藝</span></summary><div class="shb">先了解沖繩陶藝的歷史與流派，再去挑東西，會知道自己買的是什麼。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A3%BA%E5%B1%8B%E7%84%BC%E7%89%A9%E5%8D%9A%E7%89%A9%E9%A4%A8">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">Etha</span><span class="tg">文創選物</span></summary><div class="shb">陶器之外的生活選物與雜貨，逛累了進來換個口味。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Etha%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">UCHINA CAFÉ BUKU-BUKU</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩傳統的「泡泡茶（ぶくぶく茶）」，米湯打出綿密泡沫，是很沖繩的體驗。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%B6%E3%81%8F%E3%81%B6%E3%81%8F%E8%8C%B6%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#3E7CB1"><summary><span class="ic">🎨</span><span class="nm">浮島通</span><span class="stay">20–30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">國際通旁的文青街，獨立品牌、古著店、咖啡館與設計小店聚在一起，店面都不大但各有個性，喜歡慢慢逛的人不要錯過。</p><h5 style="--c:#3E7CB1">推薦</h5><ul><li>古著、手作飾品</li><li>獨立文創品牌</li><li>精品咖啡</li></ul><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">ON OFF YES NO</span><span class="tg">咖啡甜點</span></summary><div class="shb">小而安靜的咖啡店，逛街中場休息的好地方。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ON%20OFF%20YES%20NO%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">oHacorte（水果塔）</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩人氣水果塔店，季節水果配酥脆塔皮，外帶內用都行。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=oHacorte%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">BALL DONUT PARK</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩超人氣的球形甜甜圈，現炸現做，小朋友會喜歡。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BALL%20DONUT%20PARK%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#2A9D8F"><summary><span class="ic">🍊</span><span class="nm">むつみ橋通</span><span class="stay">15–20 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">介於國際通與市場區之間，當地居民日常在逛的生活商店街，觀光味最淡的一條。</p><h5 style="--c:#2A9D8F">推薦</h5><ul><li>水果店、現切水果</li><li>在地熟食、傳統點心</li><li>日常雜貨</li></ul></div></details><details class="st" style="--c:#3F4E8C"><summary><span class="ic">🌙</span><span class="nm">國際通夜生活</span><span class="stay">18:00 後</span><span class="arw"></span></summary><div class="stb"><p class="intro">晚上 6 點過後，國際通會<b>從購物街切換成美食街</b>：居酒屋、民謠 Live、拉麵、燒肉、Bar 陸續開場。商店多半 21:00–22:00 打烊，但餐廳與酒吧會營業到深夜，是這趟少數能好好體驗夜晚的地方。</p><h5>🍺 必訪：國際通屋台村</h5><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">國際通屋台村</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">約 20 間小型屋台聚在一起，每間主打不同料理，可以一攤吃一點、換位子繼續喝，<b>第一次體驗沖繩夜生活的最佳入門</b>。氣氛熱鬧、店家也習慣招呼觀光客。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>阿古豬料理、沖繩串燒</li><li>當日海鮮</li><li>泡盛、Orion 生啤酒</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%B1%8B%E5%8F%B0%E6%9D%91">📍 開啟地圖</a></div></details><h5>🍶 居酒屋</h5><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">Okinawa Bar Haisai（那霸本店）</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">沖繩家常菜配泡盛的經典組合，<b>不少晚上還有沖繩民謠演出</b>，邊吃邊聽三線很有氣氛。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>海葡萄</li><li>苦瓜炒蛋（ゴーヤチャンプルー）</li><li>阿古豬料理、泡盛</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Okinawa%20Bar%20Haisai%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">魚の屯場 うおたむ</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">海鮮愛好者的選擇，<b>營業到凌晨</b>，晚一點想吃生魚片配日本酒就來這。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>生魚片、烤魚</li><li>沖繩在地海鮮</li><li>日本酒</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%AD%9A%E3%81%AE%E5%B1%AF%E5%A0%B4%20%E3%81%86%E3%81%8A%E3%81%9F%E3%82%80%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">TACHINOMIYA BAR Kokusai st.</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">站著喝的小酒館，價格親民、氣氛輕鬆，<b>適合一個人或兩三人小酌一輪</b>再走。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>生啤酒、下酒菜</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=TACHINOMIYA%20BAR%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">民謠 Live 居酒屋（如 Akabana）</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">想體驗沖繩文化的話，很值得安排一晚：<b>一邊吃飯一邊看三線現場演出</b>，通常一晚有數場、有時全場一起跳舞收尾。人氣店建議先訂位。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B0%91%E8%AC%A0%E3%83%A9%E3%82%A4%E3%83%96%20%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><h5>🍜 宵夜</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Ryuya 本店（琉家）</span><span class="tg">美食</span></summary><div class="shb">豚骨拉麵配煎餃的組合，<b>營業到午夜</b>，居酒屋結束後續攤剛好。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>豚骨拉麵</li><li>煎餃、炒飯</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ryuya%20%E9%82%A3%E8%A6%87%20%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">KOUCHAN RAMEN</span><span class="tg">美食</span></summary><div class="shb"><b>週五、六營業到凌晨 2 點</b>，是深夜最後的救援，辛味拉麵很受歡迎。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>豚骨拉麵</li><li>辛味拉麵</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=KOUCHAN%20RAMEN%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><h5>🥩 深夜燒肉</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">琉球の牛 那霸國際通店</span><span class="tg">美食</span></summary><div class="shb">如果 Day 3 沒吃到北谷店，這裡是國際通上的同品牌選擇，縣產和牛品質一樣穩。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%90%83%E3%81%AE%E7%89%9B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">燒肉 KAZUCHAN（那霸國際通店）</span><span class="tg">美食</span></summary><div class="shb">國際通附近的人氣燒肉，晚場也熱鬧。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E8%82%89%20KAZUCHAN%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><h5>🍔 沖繩限定速食・散步甜點</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">A&W 國際通牧志店</span><span class="tg">美食</span></summary><div class="shb">晚上嘴饞的沖繩限定選擇，麥根沙士可以續杯。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=A%26W%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Blue Seal 國際通店</span><span class="tg">咖啡甜點</span><span class="rt2">★ 4.3</span></summary><div class="shb">買一支邊走邊逛，是國際通夜晚最常見的畫面。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Blue%20Seal%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97">📍 開啟地圖</a></div></details><h5>🍻 想喝一杯的話</h5><ul><li><b>Orion 生啤酒</b>　沖繩在地啤酒，清爽好入口，配串燒最對味</li><li><b>泡盛</b>　沖繩的米燒酎，酒精度偏高。推薦品牌：<b>殘波</b>、<b>菊之露</b>、<b>瑞泉</b></li><li><b>第一次喝泡盛</b>　建議點「加冰（ロック）」或「加水（水割り）」，比純飲順口很多</li></ul><div class="note" style="margin-top:12px"><b>安全提醒</b>：這趟是自駕行程，<b>日本酒駕零容忍</b>——喝酒就別開車。國際通一帶走路或搭單軌都方便，逸之彩就在牧志站附近，散步回去即可。</div></div></details><details class="st" style="--c:#6B4E3D"><summary><span class="ic">☕</span><span class="nm">逛累了的休息站</span><span class="stay">隨時</span><span class="arw"></span></summary><div class="stb"><p class="intro">這一區走走停停很耗體力，先記幾間可以坐下來的地方，走到哪就近選一間。</p><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">the Sea 夏威夷水果咖啡</span><span class="tg">咖啡甜點</span><span class="rt2">★ 4.8</span></summary><div class="shb">沖繩刨冰、水果冰與夏季飲品，逛街途中的降溫首選。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=the%20Sea%20%E3%83%8F%E3%83%AF%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%95%E3%83%AB%E3%83%BC%E3%83%84">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Cafe Planta</span><span class="tg">咖啡甜點</span></summary><div class="shb">人氣甜點咖啡，適合坐下來喘口氣、整理戰利品。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cafe%20Planta%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Fontana Gelato</span><span class="tg">咖啡甜點</span></summary><div class="shb">義式冰淇淋，口味會隨季節換。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fontana%20Gelato%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Helios Pub</span><span class="tg">美食</span></summary><div class="shb">沖繩在地精釀啤酒，晚餐後想小酌的話很合適。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Helios%20Pub%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details></div></details></div><div class="note" style="margin-top:16px"><b>採買提醒</b>：伴手禮<b>先走平和通、市場本通比價再回頭買</b>；單店滿 5,000 日圓可辦免稅，護照隨身帶；大城屋不能退稅、只收現金；陶器重又怕撞，建議最後買並分裝進托運行李。</div>
+<div class="gd2"><details class="st" style="--c:#E07A3E"><summary><span class="ic">🏙️</span><span class="nm">國際通（国際通り）</span><span class="stay">60–90 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kokusai-dori08s3s4440.jpg?width=800" alt="國際通（国際通り）" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">沖繩最熱鬧的購物大道，全長約 1.6 公里、聚集約 600 間店，伴手禮、餐廳、藥妝、百貨與文創品牌一路排到底。多數店家營業到晚上 10 點，是這一區的主動脈。</p><h5>推薦店家（點開看介紹）</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Calbee+ 國際通店</span><span class="tg">美食</span></summary><div class="shb">現點現炸的薯條是這裡的招牌，酥脆度跟超市買的完全兩回事，排隊也值得。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>現炸薯條（現場吃）</li><li>Poteriko</li><li>沖繩限定洋芋片、限定伴手禮</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Calbee+%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">雪鹽專賣店（塩屋）</span><span class="tg">美食</span></summary><div class="shb">宮古島雪鹽做的甜點與霜淇淋，霜淇淋可以自己撒不同風味的鹽，鹹甜交錯很有記憶點。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>雪鹽霜淇淋</li><li>雪鹽金楚糕、雪鹽餅乾</li><li>各式風味鹽</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E5%B1%8B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">JAM MARKET</span><span class="tg">文創選物</span></summary><div class="shb">沖繩代表性的文創品牌，鯨鯊與風獅爺系列設計感強，買紀念品不容易跟別人撞款。<h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>沖繩限定 T-shirt（鯨鯊、風獅爺）</li><li>帆布袋、帽子</li><li>貼紙、徽章</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=JAM%20MARKET%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">無印良品（MUJI）</span><span class="tg">文創選物</span></summary><div class="shb">沖繩的無印良品幾乎都開在 <b>San-A 超市與 RYUBO 百貨</b>裡，AEON Rycom 與 iias 豐崎都沒有分店，想逛要另外安排。<h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:10px 0 2px">🥇 最順路：パレットくもじ店（RYUBO 8F）</h5><ul style="margin:0;padding-left:1.1em"><li>那霸市久茂地 1-1-1 RYUBO 百貨 8 樓</li><li>營業 <b>10:00–20:00</b>（20:00 就打烊，要早點去）</li><li>位在<b>縣廳前站、國際通西端起點</b>，Day 4 逛國際通時走過去即可</li><li>百貨櫃位、面積不大，適合順手補貨</li></ul><h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:10px 0 2px">🥈 想認真逛：那霸メインプレイス店</h5><ul style="margin:0;padding-left:1.1em"><li>那霸市おもろまち 4-4-9・San-A 那霸 Main Place 2 樓</li><li>營業 <b>9:00–22:00</b>，免費停車約 2,500 位</li><li>沖繩<b>第二大的無印</b>，約 7,000 種商品，衣物、生活雜貨、食品都齊</li><li>從國際通開車約 15 分鐘，適合安排在 Day 4 晚餐後</li></ul><h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:10px 0 2px">🥉 Day 5 順路選項</h5><ul style="margin:0;padding-left:1.1em"><li><b>豊見城ウイングシティ店</b>　9:00–22:00，離 iias 豐崎車程約 10 分</li><li><b>MUJI to GO 那霸機場店</b>　登機前也能逛，但屬小型店、以旅行用品為主</li></ul><h5 style="color:#3E7CB1;font-size:.78rem;font-weight:800;margin:10px 0 2px">推薦購買</h5><ul style="margin:0;padding-left:1.1em"><li>日本限定的零食與即食咖哩（台灣沒賣的口味）</li><li>旅行用分裝瓶、收納袋、頸枕</li><li>文具、香氛與精油</li><li>價格與台灣有落差，比價後再下手；滿 5,000 日圓可退稅</li></ul><br>浦添西海岸 PARCO CITY 店是全沖繩最大、商品最齊的無印，但位置在浦添、離行程稍偏，時間充裕再考慮。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81%20%E3%83%91%E3%83%AC%E3%83%83%E3%83%88%E3%81%8F%E3%82%82%E3%81%98">📍 パレットくもじ店地圖</a><a target="_blank" rel="noopener" style="margin-left:14px" href="https://www.google.com/maps/search/?api=1&query=%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81%20%E9%82%A3%E8%A6%87%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%82%A4%E3%82%B9">📍 那霸メインプレイス店地圖</a></div></details><details class="shop" style="--c2:#7B5EA7"><summary><span class="dot"></span><span class="nm2">唐吉訶德 國際通店</span><span class="tg">藥妝</span></summary><div class="shb">營業到凌晨的最後補貨站，離開前把清單一次刷完最省事。<h5 style="color:#7B5EA7;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>零食、泡麵、日本限定 KitKat 與 Pocky</li><li>藥妝、保健食品、面膜</li><li>泡澡粉、泳具</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%94%90%E5%90%89%E8%A8%B6%E5%BE%B7%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">わしたショップ Washita</span><span class="tg">伴手禮</span></summary><div class="shb">整間店都是沖繩縣產品，品質穩定，不用擔心買到觀光客取向的商品。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>黑糖、泡盛、島辣椒醬</li><li>沖繩限定泡麵、調味料</li><li>農產加工品</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%8F%E3%81%97%E3%81%9F%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">御菓子御殿 國際通松尾店</span><span class="tg">伴手禮</span></summary><div class="shb">紅芋塔的名店，現場常有試吃，買回台灣送人幾乎不會出錯。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>紅芋塔（元祖）</li><li>紅芋生塔、金楚糕</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8F%93%E5%AD%90%E5%BE%A1%E6%AE%BF%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#7B5EA7"><summary><span class="dot"></span><span class="nm2">大國藥妝（牧志店・縣廳前店）</span><span class="tg">藥妝</span></summary><div class="shb">國際通上有兩間，擇近的逛即可，價格常有折扣。<h5 style="color:#7B5EA7;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>EVE 止痛藥、合利他命</li><li>小林製藥系列、眼藥水</li><li>面膜、防曬乳、休足時間</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%83%80%E3%82%A4%E3%82%B3%E3%82%AF%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Blue Seal 國際通店</span><span class="tg">美食</span></summary><div class="shb">「生於美國、長於沖繩」的老牌冰淇淋，逛街中途最好的降溫方式。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>鹽味牛奶、沖繩黑糖</li><li>紅芋、紫芋起司</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Blue%20Seal%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">A&W 國際通牧志店</span><span class="tg">美食</span></summary><div class="shb">沖繩獨有的美式速食，麥根沙士（Root Beer）是傳說中的味道，值得試一次再決定愛不愛。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>麥根沙士（可續杯）</li><li>起司漢堡、捲捲薯條</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=A%26W%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">牛かつ もと村 國際通本店</span><span class="tg">美食</span></summary><div class="shb">超人氣炸牛排定食，自己在小石板上煎到喜歡的熟度，晚餐沒想法時的安全牌。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%89%9B%E3%81%8B%E3%81%A4%E3%82%82%E3%81%A8%E6%9D%91%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">RESORT DEPARTMENT STORE（RYUBO 2F）</span><span class="tg">文創選物</span></summary><div class="shb">預算高一點時的選擇，琉球設計品牌與高質感生活用品，適合買正式一點的禮物。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%83%AA%E3%82%86%E3%81%BC%E3%82%A6%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">Splash Okinawa</span><span class="tg">文創選物</span></summary><div class="shb">插畫風格的沖繩設計品牌，色彩鮮豔，小物與服飾都好挑。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Splash%20Okinawa%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">Mi-ja 沖繩伴手禮（多家分店）</span><span class="tg">伴手禮</span></summary><div class="shb">國際通與平和通一帶有多家分店，商品齊全，適合一站買齊。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>零食、黑糖</li><li>琉球玻璃、風獅爺擺飾</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mi-ja%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#2A9D8F"><summary><span class="ic">🏮</span><span class="nm">平和通商店街</span><span class="stay">30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">全長約 330 公尺的<b>有頂拱廊</b>，下雨天也能悠閒逛。老店與小攤密集，很多東西比主街便宜，是撿便宜與挖特色伴手禮的地方。</p><h5 style="--c:#2A9D8F">必買</h5><ul><li>琉球玻璃、黑糖</li><li>沖繩零食、紫芋點心</li><li>手工藝品、風獅爺小物</li><li>在地水果果汁</li></ul><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">Mi-ja・各式伴手禮小店</span><span class="tg">伴手禮</span></summary><div class="shb">拱廊兩側都是小型伴手禮店，同款商品可以多比兩家再下手。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%B9%B3%E5%92%8C%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#C24E4E"><summary><span class="ic">🐟</span><span class="nm">市場本通</span><span class="stay">20–30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">連接國際通與牧志市場的老街，生活感最重的一條。攤商、熟食店與水果店密集，走一趟就能感受那霸日常。</p><h5 style="--c:#C24E4E">必買</h5><ul><li>海葡萄、島辣椒</li><li>黑糖、沖繩香料</li><li>現切水果</li></ul></div></details><details class="st" style="--c:#C24E4E"><summary><span class="ic">🐠</span><span class="nm">第一牧志公設市場</span><span class="stay">30–40 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/JP-47_Naha_Makishi-Public-Market.jpg?width=800" alt="第一牧志公設市場" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">2023 年整修重新開幕的「那霸的廚房」，1F 是熱帶魚鮮、縣產豬肉與醃漬小菜，2F 食堂街可以樓下買、樓上代客料理（持ち上げ）。體驗沖繩飲食文化最直接的地方。</p><h5 style="--c:#C24E4E">必吃・必買</h5><ul><li>石垣牛、當日海鮮、夜光貝</li><li>海葡萄、沖繩黑糖</li><li>島辣椒、島胡椒、沖繩味噌</li><li>鰹魚高湯包、花生豆腐、沖繩香腸</li></ul><details class="shop" style="--c2:#2A9D8F"><summary><span class="dot"></span><span class="nm2">大城屋</span><span class="tg">伴手禮</span></summary><div class="shb">市場周邊的老字號伴手禮店，在地人與熟客會去的地方，<b>價格常比國際通與機場便宜</b>。<br><b>三件事要記得</b>：<b>不能退稅</b>、<b>只收現金</b>、大量採買先備好日圓。<h5 style="color:#2A9D8F;font-size:.78rem;font-weight:800;margin:8px 0 2px">必買・推薦</h5><ul style="margin:0;padding-left:1.1em"><li>紅芋塔、金楚糕</li><li>黑糖、鹽味零食</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9F%8E%E5%B1%8B%20%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#A9744F"><summary><span class="ic">🏺</span><span class="nm">壺屋やちむん通</span><span class="stay">45–60 分</span><span class="arw"></span></summary><div class="stb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/JP-47_Naha_Tsuboya-Yachimun-dori_street.jpg?width=800" alt="壺屋やちむん通" loading="lazy" data-zoom onerror="this.remove()"><p class="intro">沖繩陶器「やちむん」的發源地，石板路兩旁保留百年陶藝工坊與紅瓦老屋，是那霸最適合慢慢散步的一段。<b>注意：多數陶器店 18:00 前打烊</b>，想逛要提早過來。</p><h5 style="--c:#A9744F">必買</h5><ul><li>やちむん陶器、手工馬克杯</li><li>飯碗、茶具、小碟</li><li>風獅爺陶偶</li></ul><h5>推薦店家</h5><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">育陶園</span><span class="tg">陶器工藝</span></summary><div class="shb">壺屋燒的代表品牌，傳統紋樣與厚實手感，適合買一組帶回家天天用。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%82%B2%E9%99%B6%E5%9C%92%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">guma guwa</span><span class="tg">陶器工藝</span></summary><div class="shb">育陶園旗下的姊妹品牌，器皿線條較輕巧現代，白瓷與淡色系好搭。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=guma%20guwa%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#A9744F"><summary><span class="dot"></span><span class="nm2">壺屋燒物博物館</span><span class="tg">陶器工藝</span></summary><div class="shb">先了解沖繩陶藝的歷史與流派，再去挑東西，會知道自己買的是什麼。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A3%BA%E5%B1%8B%E7%84%BC%E7%89%A9%E5%8D%9A%E7%89%A9%E9%A4%A8">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3E7CB1"><summary><span class="dot"></span><span class="nm2">Etha</span><span class="tg">文創選物</span></summary><div class="shb">陶器之外的生活選物與雜貨，逛累了進來換個口味。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Etha%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">UCHINA CAFÉ BUKU-BUKU</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩傳統的「泡泡茶（ぶくぶく茶）」，米湯打出綿密泡沫，是很沖繩的體驗。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%B6%E3%81%8F%E3%81%B6%E3%81%8F%E8%8C%B6%20%E5%A3%BA%E5%B1%8B">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#3E7CB1"><summary><span class="ic">🎨</span><span class="nm">浮島通</span><span class="stay">20–30 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">國際通旁的文青街，獨立品牌、古著店、咖啡館與設計小店聚在一起，店面都不大但各有個性，喜歡慢慢逛的人不要錯過。</p><h5 style="--c:#3E7CB1">推薦</h5><ul><li>古著、手作飾品</li><li>獨立文創品牌</li><li>精品咖啡</li></ul><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">ON OFF YES NO</span><span class="tg">咖啡甜點</span></summary><div class="shb">小而安靜的咖啡店，逛街中場休息的好地方。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=ON%20OFF%20YES%20NO%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">oHacorte（水果塔）</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩人氣水果塔店，季節水果配酥脆塔皮，外帶內用都行。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=oHacorte%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">BALL DONUT PARK</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩超人氣的球形甜甜圈，現炸現做，小朋友會喜歡。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BALL%20DONUT%20PARK%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details></div></details><details class="st" style="--c:#2A9D8F"><summary><span class="ic">🍊</span><span class="nm">むつみ橋通</span><span class="stay">15–20 分</span><span class="arw"></span></summary><div class="stb"><p class="intro">介於國際通與市場區之間，當地居民日常在逛的生活商店街，觀光味最淡的一條。</p><h5 style="--c:#2A9D8F">推薦</h5><ul><li>水果店、現切水果</li><li>在地熟食、傳統點心</li><li>日常雜貨</li></ul></div></details><details class="st" style="--c:#3F4E8C"><summary><span class="ic">🌙</span><span class="nm">國際通夜生活</span><span class="stay">18:00 後</span><span class="arw"></span></summary><div class="stb"><p class="intro">晚上 6 點過後，國際通會<b>從購物街切換成美食街</b>：居酒屋、民謠 Live、拉麵、燒肉、Bar 陸續開場。商店多半 21:00–22:00 打烊，但餐廳與酒吧會營業到深夜，是這趟少數能好好體驗夜晚的地方。</p><h5>🍺 必訪：國際通屋台村</h5><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">國際通屋台村</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">約 20 間小型屋台聚在一起，每間主打不同料理，可以一攤吃一點、換位子繼續喝，<b>第一次體驗沖繩夜生活的最佳入門</b>。氣氛熱鬧、店家也習慣招呼觀光客。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>阿古豬料理、沖繩串燒</li><li>當日海鮮</li><li>泡盛、Orion 生啤酒</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%B1%8B%E5%8F%B0%E6%9D%91">📍 開啟地圖</a></div></details><h5>🍶 居酒屋</h5><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">Okinawa Bar Haisai（那霸本店）</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">沖繩家常菜配泡盛的經典組合，<b>不少晚上還有沖繩民謠演出</b>，邊吃邊聽三線很有氣氛。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>海葡萄</li><li>苦瓜炒蛋（ゴーヤチャンプルー）</li><li>阿古豬料理、泡盛</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Okinawa%20Bar%20Haisai%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">魚の屯場 うおたむ</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">海鮮愛好者的選擇，<b>營業到凌晨</b>，晚一點想吃生魚片配日本酒就來這。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>生魚片、烤魚</li><li>沖繩在地海鮮</li><li>日本酒</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%AD%9A%E3%81%AE%E5%B1%AF%E5%A0%B4%20%E3%81%86%E3%81%8A%E3%81%9F%E3%82%80%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">TACHINOMIYA BAR Kokusai st.</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">站著喝的小酒館，價格親民、氣氛輕鬆，<b>適合一個人或兩三人小酌一輪</b>再走。<h5 style="color:#3F4E8C;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>生啤酒、下酒菜</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=TACHINOMIYA%20BAR%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#3F4E8C"><summary><span class="dot"></span><span class="nm2">民謠 Live 居酒屋（如 Akabana）</span><span class="tg">居酒屋・Bar</span></summary><div class="shb">想體驗沖繩文化的話，很值得安排一晚：<b>一邊吃飯一邊看三線現場演出</b>，通常一晚有數場、有時全場一起跳舞收尾。人氣店建議先訂位。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B0%91%E8%AC%A0%E3%83%A9%E3%82%A4%E3%83%96%20%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><h5>🍜 宵夜</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Ryuya 本店（琉家）</span><span class="tg">美食</span></summary><div class="shb">豚骨拉麵配煎餃的組合，<b>營業到午夜</b>，居酒屋結束後續攤剛好。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>豚骨拉麵</li><li>煎餃、炒飯</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ryuya%20%E9%82%A3%E8%A6%87%20%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">KOUCHAN RAMEN</span><span class="tg">美食</span></summary><div class="shb"><b>週五、六營業到凌晨 2 點</b>，是深夜最後的救援，辛味拉麵很受歡迎。<h5 style="color:#E07A3E;font-size:.78rem;font-weight:800;margin:8px 0 2px">推薦</h5><ul style="margin:0;padding-left:1.1em"><li>豚骨拉麵</li><li>辛味拉麵</li></ul><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=KOUCHAN%20RAMEN%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><h5>🥩 深夜燒肉</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">琉球の牛 那霸國際通店</span><span class="tg">美食</span></summary><div class="shb">如果 Day 3 沒吃到北谷店，這裡是國際通上的同品牌選擇，縣產和牛品質一樣穩。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%90%89%E7%90%83%E3%81%AE%E7%89%9B%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">燒肉 KAZUCHAN（那霸國際通店）</span><span class="tg">美食</span></summary><div class="shb">國際通附近的人氣燒肉，晚場也熱鬧。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%84%BC%E8%82%89%20KAZUCHAN%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A">📍 開啟地圖</a></div></details><h5>🍔 沖繩限定速食・散步甜點</h5><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">A&W 國際通牧志店</span><span class="tg">美食</span></summary><div class="shb">晚上嘴饞的沖繩限定選擇，麥根沙士可以續杯。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=A%26W%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E7%89%A7%E5%BF%97">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Blue Seal 國際通店</span><span class="tg">咖啡甜點</span></summary><div class="shb">買一支邊走邊逛，是國際通夜晚最常見的畫面。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Blue%20Seal%20%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E5%BA%97">📍 開啟地圖</a></div></details><h5>🍻 想喝一杯的話</h5><ul><li><b>Orion 生啤酒</b>　沖繩在地啤酒，清爽好入口，配串燒最對味</li><li><b>泡盛</b>　沖繩的米燒酎，酒精度偏高。推薦品牌：<b>殘波</b>、<b>菊之露</b>、<b>瑞泉</b></li><li><b>第一次喝泡盛</b>　建議點「加冰（ロック）」或「加水（水割り）」，比純飲順口很多</li></ul><div class="note" style="margin-top:12px"><b>安全提醒</b>：這趟是自駕行程，<b>日本酒駕零容忍</b>——喝酒就別開車。國際通一帶走路或搭單軌都方便，逸之彩就在牧志站附近，散步回去即可。</div></div></details><details class="st" style="--c:#6B4E3D"><summary><span class="ic">☕</span><span class="nm">逛累了的休息站</span><span class="stay">隨時</span><span class="arw"></span></summary><div class="stb"><p class="intro">這一區走走停停很耗體力，先記幾間可以坐下來的地方，走到哪就近選一間。</p><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">the Sea 夏威夷水果咖啡</span><span class="tg">咖啡甜點</span></summary><div class="shb">沖繩刨冰、水果冰與夏季飲品，逛街途中的降溫首選。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=the%20Sea%20%E3%83%8F%E3%83%AF%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%95%E3%83%AB%E3%83%BC%E3%83%84">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Cafe Planta</span><span class="tg">咖啡甜點</span></summary><div class="shb">人氣甜點咖啡，適合坐下來喘口氣、整理戰利品。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cafe%20Planta%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#6B4E3D"><summary><span class="dot"></span><span class="nm2">Fontana Gelato</span><span class="tg">咖啡甜點</span></summary><div class="shb">義式冰淇淋，口味會隨季節換。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fontana%20Gelato%20%E9%82%A3%E8%A6%87">📍 開啟地圖</a></div></details><details class="shop" style="--c2:#E07A3E"><summary><span class="dot"></span><span class="nm2">Helios Pub</span><span class="tg">美食</span></summary><div class="shb">沖繩在地精釀啤酒，晚餐後想小酌的話很合適。<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Helios%20Pub%20%E5%9C%8B%E9%9A%9B%E9%80%9A">📍 開啟地圖</a></div></details></div></details></div><div class="note" style="margin-top:16px"><b>採買提醒</b>：伴手禮<b>先走平和通、市場本通比價再回頭買</b>；單店滿 5,000 日圓可辦免稅，護照隨身帶；大城屋不能退稅、只收現金；陶器重又怕撞，建議最後買並分裝進托運行李。</div>
   </div>
 </details>
 
@@ -1490,6 +1766,181 @@ if('serviceWorker' in navigator){
     });
   });
 }
+</script>
+
+<button id="theme-btn" type="button" aria-label="切換深色模式">🌙</button>
+<script>
+/* ===== 深色模式切換 ===== */
+(function(){
+  var btn = document.getElementById('theme-btn');
+  var root = document.documentElement;
+
+  // 讀取上次的選擇；沒有紀錄就跟隨系統
+  var saved = null;
+  try { saved = localStorage.getItem('okinawa-theme'); } catch(e){}
+  if(saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+
+  function isDark(){
+    var attr = root.getAttribute('data-theme');
+    if(attr) return attr === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function paint(){
+    btn.textContent = isDark() ? '☀️' : '🌙';
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if(meta) meta.setAttribute('content', isDark() ? '#0E1D25' : '#5AA9C9');
+  }
+
+  btn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('okinawa-theme', next); } catch(e){}
+    paint();
+  });
+
+  paint();
+})();
+</script>
+
+<script>
+/* ===== 店家・景點搜尋 ===== */
+(function(){
+  var q = document.getElementById('sr-q');
+  var list = document.getElementById('sr-list');
+  var empty = document.getElementById('sr-empty');
+  if(!q) return;
+
+  var index = [];
+
+  // 來源一：行程時間軸上可點開的項目（對應詳情面板）
+  document.querySelectorAll('[data-d]').forEach(function(el){
+    var key = el.dataset.d;
+
+    // 名稱只取行程文字，時間另外抓，避免兩者黏在一起
+    var actEl = el.querySelector('.act');
+    var label = (actEl ? actEl.textContent : el.textContent || '')
+      .replace(/[›»]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if(!label) return;
+
+    var timeEl = el.querySelector('.time');
+    var time = '';
+    if(timeEl){
+      var hits = (timeEl.textContent || '').match(/\d{1,2}:\d{2}/g);
+      if(hits) time = hits.join('–');
+      else time = timeEl.textContent.trim();   // 例如「備選」
+    }
+
+    var dayEl = el.closest('.day');
+    var day = '攻略';
+    if(dayEl){
+      var en = dayEl.querySelector('.d-en');
+      if(en) day = 'Day ' + (en.textContent.match(/\d+/) || [''])[0];
+    }
+
+    index.push({
+      name: label,
+      time: time,
+      where: day,
+      type: 'sheet',
+      key: key
+    });
+  });
+
+  // 來源二：購物攻略裡的店家（收折卡片）
+  document.querySelectorAll('#kokusai .shop').forEach(function(el){
+    var nameEl = el.querySelector('.nm2');
+    var tagEl = el.querySelector('.tg');
+    if(!nameEl) return;
+    index.push({
+      name: nameEl.textContent.trim(),
+      where: tagEl ? tagEl.textContent.trim() : '購物',
+      type: 'node',
+      node: el,
+      body: (el.textContent || '')
+    });
+  });
+
+  // 來源三：商店街本身
+  document.querySelectorAll('#kokusai .st').forEach(function(el){
+    var nameEl = el.querySelector('.nm');
+    if(!nameEl) return;
+    index.push({
+      name: nameEl.textContent.trim(),
+      where: '商店街',
+      type: 'node',
+      node: el,
+      body: (el.textContent || '')
+    });
+  });
+
+  function openSheetByKey(key){
+    var trigger = document.querySelector('[data-d="' + key + '"]');
+    if(trigger) trigger.click();
+  }
+
+  function revealNode(node){
+    // 購物攻略只在 Day 3–5 顯示，若目前隱藏就先切到 Day 4
+    var guide = document.getElementById('kokusai');
+    if(guide && guide.style.display === 'none'){
+      var t = document.querySelector('.tab[data-day="d4"]');
+      if(t) t.click();
+    }
+
+    // 把所有上層的收折區塊打開，再捲到該處
+    var p = node;
+    while(p){
+      if(p.tagName === 'DETAILS') p.setAttribute('open', '');
+      p = p.parentElement;
+    }
+    node.setAttribute('open', '');
+    setTimeout(function(){
+      node.scrollIntoView({block:'center', behavior:'smooth'});
+      node.classList.add('flash');
+      setTimeout(function(){ node.classList.remove('flash'); }, 1700);
+    }, 120);
+  }
+
+  function render(hits){
+    list.innerHTML = '';
+    hits.slice(0, 12).forEach(function(it){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'hit';
+      var timeHtml = it.time ? '<em class="t">' + it.time + '</em>' : '';
+      b.innerHTML =
+        '<span class="k">' + it.name + timeHtml + '</span>' +
+        '<span class="w">' + it.where + '</span>';
+      b.addEventListener('click', function(){
+        if(it.type === 'sheet') openSheetByKey(it.key);
+        else revealNode(it.node);
+      });
+      list.appendChild(b);
+    });
+  }
+
+  q.addEventListener('input', function(){
+    var s = q.value.trim().toLowerCase();
+    if(s.length < 1){
+      list.innerHTML = '';
+      empty.textContent = '可搜尋行程景點、餐廳、商店街與購物攻略裡的所有店家。';
+      return;
+    }
+    var hits = index.filter(function(it){
+      return (it.name + ' ' + (it.body || '')).toLowerCase().indexOf(s) >= 0;
+    });
+    // 店名直接命中的排前面
+    hits.sort(function(a, b){
+      var an = a.name.toLowerCase().indexOf(s) >= 0 ? 0 : 1;
+      var bn = b.name.toLowerCase().indexOf(s) >= 0 ? 0 : 1;
+      return an - bn;
+    });
+    render(hits);
+    empty.textContent = hits.length ? ('找到 ' + hits.length + ' 筆') : '找不到相符的店家，換個關鍵字試試。';
+  });
+})();
 </script>
 </body>
 </html>
