@@ -417,6 +417,10 @@ section{margin-top:44px}
 .tl .act .hl{font-weight:700;color:var(--deep)}
 .tl .act .map{font-size:.8rem;margin-left:.4em;white-space:nowrap}
 .tl li.star .dot{background:var(--coral);border-color:#FFD9C6}
+/* 備選／看情況才走的行程：虛線框，與正式行程區隔 */
+.tl li.alt .act{border-style:dashed !important;opacity:.94}
+.tl li.alt .time{font-weight:800;color:var(--coral)}
+.tl li.alt .dot{background:var(--sand) !important;border:2px solid var(--coral) !important}
 .tl li.star .act .hl{color:var(--coral)}
 
 /* spot highlight cards */
@@ -915,6 +919,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       <li><span class="time">16:00<br>17:00</span><span class="dot"></span><span class="act">入境、領取行李</span></li>
       <li><span class="time">17:00<br>17:20</span><span class="dot"></span><span class="act">搭乘 OTS 接駁車前往豐崎營業所</span></li>
       <li class="tap" data-d="ots"><span class="time">17:20<br>18:00</span><span class="dot"></span><span class="act">OTS 豐崎店辦理取車、確認車況及導航 🚗</span></li>
+      <li class="tap alt" data-d="senaga"><span class="time">備選</span><span class="dot"></span><span class="act">☀️ <b>天氣好就改去瀨長島</b>：Umikaji Terrace 看夕陽吃晚餐（<b>日落 18:48</b>）✈️</span></li>
       <li class="star tap" data-d="iias"><span class="time">18:00<br>19:00</span><span class="dot"></span><span class="act"><span class="hl">iias 沖繩豐崎：晚餐＋超市補給 🍔</span></span></li>
       <li><span class="time">19:00<br>20:20</span><span class="dot"></span><span class="act">自駕北上名護</span></li>
       <li class="star tap" data-d="kouki"><span class="time">20:30</span><span class="dot"></span><span class="act"><span class="hl">入住沖繩幸喜海灘最佳西方酒店</span></span></li>
@@ -922,6 +927,14 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     </ul>
     <div class="proto-hint">💡 帶「›」的項目可以直接點開，看介紹、照片與地圖；行程區塊<b>左右滑動</b>可以切換天數。</div>
     <div class="note"><b>當日重點</b>：取車後先在同一區的 iias 解決晚餐、超市補給完再北上，抵達名護就能直接休息，不用摸黑找吃的。</div>
+    <div class="tip"><b>☀️ 備案：取完車先衝瀨長島看夕陽</b>
+      <ul>
+        <li><b>9/2 那霸日落 18:48</b>，取完車 18:00 出發、車程約 15 分，時間剛剛好。</li>
+        <li><b>18:00</b> 豐崎出發 → <b>18:15–19:20</b> 瀨長島（Umikaji Terrace 吃晚餐＋夕陽＋看飛機低空進場）→ <b>19:20–20:45</b> 北上名護 → <b>約 20:50</b> 入住。<b>只比原定晚約 20 分鐘。</b></li>
+        <li><b>取捨</b>：晚餐改在 Umikaji Terrace 吃，就<b>跳過 iias 的超市補給</b>。飲用水零食可在名護的便利商店或 AEON 補；伴手禮 Day 5 還車前會再回 iias，不用急。</li>
+        <li>下雨或班機延誤就<b>直接走原定的 iias</b>，不要硬排——第一天大家都累，早點到飯店比較實在。</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1726,11 +1739,15 @@ function phFallback(img){
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=Okinawa+Hinode+Resort+and+Hot+Spring+Hotel'},{t:'🔎 飯店照片與評價', h:'https://www.google.com/search?q=%E6%B2%96%E7%B8%84%E9%80%B8%E4%B9%8B%E5%BD%A9%E9%A3%AF%E5%BA%97', lite:true}]
     },
     senaga: {
-      tag:'備選', title:'瀨長島 Umikaji Terrace', sub:'Day 4 備選｜距那霸機場約 15 分車程',
+      tag:'備選', title:'瀨長島 Umikaji Terrace', sub:'Day 1 傍晚／Day 4 備選｜距豐崎約 15 分車程',
       ph:[FP+'Umikaji_Terrace_Senagajima.jpg?width=900'], emo:'🌅',
-      body:'<b>🌊 沖繩最受歡迎的海景商店街</b><br>位於距離那霸機場不遠的小島上，以<b>純白色階梯式建築、無敵海景與悠閒度假氛圍</b>聞名，被譽為「沖繩版地中海小鎮」。園區聚集約 40 多間特色店家，包括咖啡廳、沖繩美食、甜點及伴手禮，是許多旅客抵達沖繩或返國前的最後一站。<br><br>'
+      body:'<b>☀️ Day 1 這樣排</b>（天氣好才去，下雨就照原定的 iias）<br>'
+        + '<b>18:00</b> OTS 豐崎取完車出發（車程約 15 分）→ <b>18:15</b> 抵達、先逛一圈買晚餐 → '
+        + '<b>18:48 日落</b>，到面西的階梯或頂端展望處看夕陽 → <b>19:20</b> 出發北上名護 → <b>約 20:50</b> 入住幸喜。'
+        + '比原定行程<b>晚約 20 分鐘</b>，代價是跳過 iias 的超市補給（名護的便利商店或 AEON 可補）。<br><br>'
+        + '<b>🌊 沖繩最受歡迎的海景商店街</b><br>位於距離那霸機場不遠的小島上，以<b>純白色階梯式建築、無敵海景與悠閒度假氛圍</b>聞名，被譽為「沖繩版地中海小鎮」。園區聚集約 40 多間特色店家，包括咖啡廳、沖繩美食、甜點及伴手禮，是許多旅客抵達沖繩或返國前的最後一站。<br><br>'
         + '<b>⭐ 景點特色</b><br>🌊 無敵海景觀景平台<br>🏖 白色地中海風建築<br>🍦 沖繩特色冰淇淋、甜點<br>☕ 海景咖啡廳<br>🛍 在地文創與伴手禮商店<br>✈️ 近距離欣賞飛機起降<br><br>'
-        + '<b>💡 實戰提示</b>：九月上旬日落約 <b>18:40 前後</b>，想看夕陽建議 17:30 前抵達，先逛一圈買好吃的，18:20 前到面西的階梯或頂端展望處卡位。假日傍晚停車位緊張，滿場就往島另一側的停車場繞。島上也有溫泉飯店的足湯可順道體驗。',
+        + '<b>💡 實戰提示</b>：<b>9/2 日落 18:48、9/5 為 18:45</b>，抓在日落前 30 分鐘抵達，先逛一圈買好吃的，再去面西的階梯或頂端展望處卡位。假日傍晚停車位緊張，滿場就往島另一側的停車場繞。島上也有溫泉飯店的足湯可順道體驗。',
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E7%80%AC%E9%95%B7%E5%B3%B6+Umikaji+Terrace'},{t:'🔎 店家與美食搜尋', h:'https://www.google.com/search?q=%E7%80%AC%E9%95%B7%E5%B3%B6+%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9+%E7%BE%8E%E9%A3%9F', lite:true}]
     },
 
