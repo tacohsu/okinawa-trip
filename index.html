@@ -193,6 +193,53 @@
   border-radius:8px;
   padding:4px 9px;
 }
+/* ===== 品牌 logo 磚 ===== */
+.lg{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
+  gap:8px;
+  margin:6px 0 4px;
+}
+.lg i{
+  display:block;
+  background:#fff;
+  border:1px solid #E7EDF0;
+  border-radius:10px;
+  padding:7px 5px 5px;
+  text-align:center;
+  font-style:normal;
+}
+.lg i img{
+  display:block;
+  width:100%;
+  height:32px;
+  object-fit:contain;
+  margin-bottom:3px;
+}
+.lg i b{
+  display:block;
+  font-size:.58rem;
+  font-weight:700;
+  line-height:1.25;
+  color:#333;
+  word-break:break-word;
+}
+.lg i u{
+  display:block;
+  font-size:.55rem;
+  color:#8A9AA3;
+  text-decoration:none;
+}
+.flr{
+  display:inline-block;
+  font-size:.7rem;
+  font-weight:900;
+  color:#fff;
+  background:var(--sea);
+  border-radius:7px;
+  padding:3px 9px;
+  margin:14px 0 2px;
+}
 .proto-hint{color:#BFD9E2}
 :root[data-theme="dark"] .spot .cat{background:#1E6C7E;color:#F2FAFC}
 :root[data-theme="dark"] #sheet-close{
@@ -238,6 +285,19 @@
     background:#22404E;
     color:#E6EFF3;
   }
+}
+
+:root[data-theme="dark"] .lg i{
+  background:#F4F8FA;
+  border-color:#2B4552;
+}
+:root[data-theme="dark"] .flr{background:#1E6C7E;color:#F2FAFC}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .lg i{
+    background:#F4F8FA;
+    border-color:#2B4552;
+  }
+  :root:not([data-theme="light"]) .flr{background:#1E6C7E;color:#F2FAFC}
 }
 #theme-btn{
   position:fixed;
@@ -1421,10 +1481,13 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       links:[{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=%E8%90%AC%E5%BA%A7%E6%AF%9B'}]
     },
     rycom: {
-      tag:'購物', title:'AEON MALL Okinawa Rycom', sub:'13:00–15:30｜午餐＋購物・寶可夢中心',
+      tag:'購物', title:'AEON MALL Okinawa Rycom', sub:'Day 3｜13:00–15:30・午餐＋購物・約 220 間店',
       ph:[], emo:'🛍️',
-      body:'沖繩最大級的 AEON 購物城，5 層樓、超過 200 間店，一進門挑高中庭的<b>大水槽</b>就是地標。先在美食街或餐廳樓層吃午餐，再直奔 <b>Pokémon Center Okinawa</b>——衝浪皮卡丘等<b>沖繩限定周邊</b>只有這裡買得到。<br><b>實戰提示</b>：先吃再逛，才不會排隊吃掉逛街時間；退稅櫃檯集中辦理、記得帶護照；15:30 準時出發往美國村。<br><b>Standard Products（2F・大創 300 円副牌）</b>：沖繩首店，約 2,000 品項，走無印風的簡約質感路線——印度棉再生系列（手帕、廚房布巾、餐墊 220–330 日圓）、香氛小物、和食器（一個 300 日圓）都是人氣品，比無印便宜、比大創有質感。',
-      links:[{t:'🌐 官方網站', h:'https://okinawarycom-aeonmall.com/'},{t:'📍 Google 地圖', h:'https://www.google.com/maps/search/?api=1&query=AEON+MALL+Okinawa+Rycom', lite:true}]
+      body:'沖繩最大級的 AEON 購物城，5 層樓、約 220 間店。一進門挑高中庭的<b>大水槽（Rycom Aquarium）</b>就是地標，約 25 種、1,000 尾沖繩近海魚在裡面回游，免費看。<br><span class=\'flr\'>1F・必看＋大品牌</span><div class=\'lg\'><i><img src=\'https://image-cdn.aeonmall.jp/uploads/3a6a4d44-3b54-4f4d-aba0-96d4c13aca89.png\' alt=\'Rycom Aquarium\' loading=\'lazy\' onerror=\'this.remove()\'><b>Rycom Aquarium</b><u>1F 中庭</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/c47cc950-5664-4889-b611-9499f288c07e.jpg\' alt=\'Pokémon Center\' loading=\'lazy\' onerror=\'this.remove()\'><b>Pokémon Center</b><u>1F [110]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/ce4f6b26-7d14-4294-80b1-a1bc6b9912b1.png\' alt=\'UNIQLO\' loading=\'lazy\' onerror=\'this.remove()\'><b>UNIQLO</b><u>1F [137]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/7fdcce5c-0fb6-4e58-bb71-b05c04c4dd84.png\' alt=\'GU\' loading=\'lazy\' onerror=\'this.remove()\'><b>GU</b><u>1F [126]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/a0dcc5b8-5b5e-42bc-b00f-98ac388a10b7.png\' alt=\'H&amp;M\' loading=\'lazy\' onerror=\'this.remove()\'><b>H&amp;M</b><u>1F [107]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/6de273b4-8bdf-4700-898d-4df7262d72c2.png\' alt=\'LOFT\' loading=\'lazy\' onerror=\'this.remove()\'><b>LOFT</b><u>1F [109]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/842bd4e3-269d-4492-90a0-126ed82e9854.png\' alt=\'3COINS+plus\' loading=\'lazy\' onerror=\'this.remove()\'><b>3COINS+plus</b><u>1F [113]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/70de56e2-291c-4737-98d1-07f812fc0bc8.png\' alt=\'Francfranc\' loading=\'lazy\' onerror=\'this.remove()\'><b>Francfranc</b><u>1F [129]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/303154a4-920b-422c-a5ac-881189f4bd61.png\' alt=\'DAISO\' loading=\'lazy\' onerror=\'this.remove()\'><b>DAISO</b><u>1F [105]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/dec632ac-4349-4d5f-ab96-72095184f8aa.png\' alt=\'NITORI\' loading=\'lazy\' onerror=\'this.remove()\'><b>NITORI</b><u>1F [128]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/7bd54dce-e878-4401-a934-5b3f4b9b2e63.png\' alt=\'Ray-Ban\' loading=\'lazy\' onerror=\'this.remove()\'><b>Ray-Ban</b><u>1F [134]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/2ed68b89-978f-467e-9f87-7989dd0aee51.png\' alt=\'coca\' loading=\'lazy\' onerror=\'this.remove()\'><b>coca</b><u>1F [108]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/03e94e50-63bc-4e3b-82ba-d5b9a58c600b.jpg\' alt=\'Workman Colors\' loading=\'lazy\' onerror=\'this.remove()\'><b>Workman Colors</b><u>1F [101-2]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/e76e0d68-9c1b-4d02-8d82-862763fa2b8c.png\' alt=\'KOJIMA×Bic 藥妝\' loading=\'lazy\' onerror=\'this.remove()\'><b>KOJIMA×Bic 藥妝</b><u>1F [104]</u></i></div><b>Pokémon Center Okinawa</b> 是沖繩唯一一間，入口有等身大的模型迎賓，沖繩限定的衝浪皮卡丘只有這裡買得到。<br><span class=\'flr\'>2F・質感雜貨・親子樂園</span><div class=\'lg\'><i><img src=\'https://image-cdn.aeonmall.jp/uploads/f0542df5-7ae3-4ae6-800c-29892d04cb2a.png\' alt=\'Standard Products\' loading=\'lazy\' onerror=\'this.remove()\'><b>Standard Products</b><u>2F [243]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/17aeff3b-feba-4c4d-844b-2fbe74add4a0.png\' alt=\'ちきゅうのにわ\' loading=\'lazy\' onerror=\'this.remove()\'><b>ちきゅうのにわ</b><u>2F [205]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/2270e332-bc25-4bf4-9ffc-866bd3cea7bf.png\' alt=\'PLAZA\' loading=\'lazy\' onerror=\'this.remove()\'><b>PLAZA</b><u>2F [228]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/0c1b5efd-320b-4e3b-ac83-ac97cd77676b.png\' alt=\'Gap / GapKids\' loading=\'lazy\' onerror=\'this.remove()\'><b>Gap / GapKids</b><u>2F [234]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/fe55620c-f653-47a4-b496-d95ba328de03.png\' alt=\'mont-bell\' loading=\'lazy\' onerror=\'this.remove()\'><b>mont-bell</b><u>2F [220]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/a785f665-11ba-40f8-afa5-f9616fda328f.png\' alt=\'MURASAKI SPORTS\' loading=\'lazy\' onerror=\'this.remove()\'><b>MURASAKI SPORTS</b><u>2F [217]</u></i></div><b>Standard Products</b> 是大創的 300 円質感副牌，走無印風，和食器一個 300 日圓最有名。<b>ちきゅうのにわ</b>是全天候親子樂園（0 歲～小學生，需脫鞋、另外收費）。<br><span class=\'flr\'>3F・鞋類・美妝・家電</span><div class=\'lg\'><i><img src=\'https://image-cdn.aeonmall.jp/uploads/f9f19967-f44a-451d-994e-5a8e660b9415.png\' alt=\'ABC-MART\' loading=\'lazy\' onerror=\'this.remove()\'><b>ABC-MART</b><u>3F [346]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/c7ccc9f8-2768-4774-8bc7-b21e82fc4970.png\' alt=\'Flying Tiger\' loading=\'lazy\' onerror=\'this.remove()\'><b>Flying Tiger</b><u>3F [334]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/4e43cef0-e2f7-4c9e-b0d7-bbbb54a04445.png\' alt=\'KOJIMA×Bic Camera\' loading=\'lazy\' onerror=\'this.remove()\'><b>KOJIMA×Bic Camera</b><u>3F [329]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/b49ae781-4700-457b-a626-9e2456f47e9a.jpg\' alt=\'FANCL\' loading=\'lazy\' onerror=\'this.remove()\'><b>FANCL</b><u>3F [352]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/8e772b2d-ed7d-467f-a73b-788c020dfe3e.png\' alt=\'JINS\' loading=\'lazy\' onerror=\'this.remove()\'><b>JINS</b><u>3F [324]</u></i></div><br><span class=\'flr\'>4F・小朋友的天堂 🧸</span><div class=\'lg\'><i><img src=\'https://image-cdn.aeonmall.jp/uploads/9e750490-cb72-4959-9b6c-10320977cf09.png\' alt=\'Toys&quot;R&quot;Us\' loading=\'lazy\' onerror=\'this.remove()\'><b>Toys&quot;R&quot;Us</b><u>4F [459]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/e605ed2a-fc6d-49bd-a649-ad9bb6c639fd.png\' alt=\'Sanrio\' loading=\'lazy\' onerror=\'this.remove()\'><b>Sanrio</b><u>4F [423]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/1c53124c-bfc3-4ac9-aa6f-3f1922e1dd29.png\' alt=\'吉卜力 Donguri\' loading=\'lazy\' onerror=\'this.remove()\'><b>吉卜力 Donguri</b><u>4F [424]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/7ac3eb3b-df9b-4de8-b5bb-c697ba635772.png\' alt=\'蠟筆小新\' loading=\'lazy\' onerror=\'this.remove()\'><b>蠟筆小新</b><u>4F [436]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/36ee1202-ac05-43d1-a188-b2af7e348551.jpg\' alt=\'MINECRAFT\' loading=\'lazy\' onerror=\'this.remove()\'><b>MINECRAFT</b><u>4F [447]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/476756b5-0d4d-4fae-b45a-d0428f8c8749.png\' alt=\'扭蛋森林\' loading=\'lazy\' onerror=\'this.remove()\'><b>扭蛋森林</b><u>4F [427]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/8399091b-47ac-4f6e-83df-dd3386405a9b.png\' alt=\'VILLAGE VANGUARD\' loading=\'lazy\' onerror=\'this.remove()\'><b>VILLAGE VANGUARD</b><u>4F [415]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/7691ffb7-1a2a-45a9-b19a-07d0b0e903bd.png\' alt=\'WEGO\' loading=\'lazy\' onerror=\'this.remove()\'><b>WEGO</b><u>4F [430]</u></i><i><img src=\'https://image-cdn.aeonmall.jp/uploads/0072d8a3-2764-44ce-a0ee-2d4df95e2ab8.png\' alt=\'CINEMA RYCOM\' loading=\'lazy\' onerror=\'this.remove()\'><b>CINEMA RYCOM</b><u>4F [422]</u></i></div>玩具反斗城、三麗鷗、吉卜力、蠟筆小新、Minecraft、扭蛋森林全部集中在這一層，<b>而且不用另外買票</b>——帶小朋友的話，這層的 CP 值比付費設施高很多。<br><span class=\'flr\'>5F・娛樂</span><div class=\'lg\'><i><img src=\'https://image-cdn.aeonmall.jp/uploads/ea226b49-404d-4375-a18d-1f9b41085a8f.png\' alt=\'UNKO MUSEUM\' loading=\'lazy\' onerror=\'this.remove()\'><b>UNKO MUSEUM</b><u>5F [505]</u></i></div><b>うんこミュージアム OKINAWA</b>（2025 年 9 月開幕的沖繩限定館，需另購票），屋頂還有<b>ちゅらピカ広場</b>戶外兒童公園（免費）。博物館至少要 1 小時，本行程時間不夠，想去要另外挪時間。<br><br><b>2.5 小時建議動線</b>：1F 美食街午餐 → 1F 大水槽＋寶可夢中心 → <b>4F 玩具樓層</b> → 2F Standard Products。一層一層往上，不用來回跑。<br><b>實戰提示</b>：先吃再逛才不會排隊排掉時間；退稅櫃檯集中辦理、記得帶護照；15:30 準時出發往美國村。',
+      links:[
+        {t:'🌐 官方網站', h:'https://okinawarycom-aeonmall.com/'},
+        {t:'🗺️ 樓層平面圖', h:'https://tw.aeonmall.global/catalog/floormap/okinawarycom/tw/index.html', lite:true}
+      ]
     },
     amvillage: {
       tag:'景點', title:'美濱美國村', sub:'16:00–17:00｜快閃散步與拍照',
